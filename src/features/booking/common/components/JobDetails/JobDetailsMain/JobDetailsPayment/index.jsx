@@ -22,7 +22,7 @@ import "./globalStyle.scss";
 import clsx from "clsx";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import instance from "app/instance";
+import instance from "../../../../../../../instance/instance";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

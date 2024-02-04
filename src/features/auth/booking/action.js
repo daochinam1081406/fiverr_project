@@ -1,4 +1,4 @@
-import instance from "app/instance";
+import instance from "../../../instance/instance";
 
 const { createAction } = require("@reduxjs/toolkit");
 

@@ -7,7 +7,7 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import instance from "app/instance";
+import instance from "../../../../../../instance/instance";
 
 import FormData from "form-data";
 import { authActionTypes } from "features/auth/action";

@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 
-import instance from "app/instance";
+import instance from "../../../../../instance/instance";
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import JobsList from "../JobsList";
