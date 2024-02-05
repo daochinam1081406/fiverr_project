@@ -15,7 +15,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import instance from "../../../../instance/instance";
+import instance from "app/instance";
 import { useSelector } from "react-redux";
 
 import lodashIsEmpty from "lodash.isempty";

@@ -1,0 +1,123 @@
+@import "assets/scss/Helpers/variables.scss";
+@import "assets/scss/Helpers/mixins.scss";
+
+body {
+  .header {
+    transition: 0.4s;
+    background-color: transparent !important;
+    .headerMain {
+      min-height: $mainHeaderHeight;
+      & > .MuiToolbar-root {
+        min-height: $mainHeaderHeight;
+        .headerMainSearch {
+          display: none;
+          flex: 0;
+          .MuiAutocomplete-root {
+            width: 100%;
+            & > div {
+              & > div {
+                & > div {
+                  background-color: #222325;
+                  border-start-start-radius: 8px;
+                  border-end-start-radius: 8px;
+                  svg {
+                    font-size: 30px;
+                    color: $whiteColor;
+                  }
+                }
+                input {
+                  max-width: 400px;
+                  width: 100%;
+                  padding-block: 8px;
+                  padding-left: 70px;
+                  outline: none;
+                  border-radius: 8px;
+                  border: 1px solid $c-border;
+                }
+              }
+            }
+          }
+        }
+        .headerMainNavPages {
+          flex: 1;
+          p {
+            cursor: pointer;
+            transition: 0.4s;
+            font-weight: 600;
+            padding-inline: 16px;
+            &:hover {
+              color: $primaryColor !important;
+            }
+          }
+        }
+        .headerMainSettings {
+          button {
+            display: inline-block;
+            font-size: 16px;
+            text-transform: capitalize;
+            transition: 0.4s;
+            margin-inline: 8px;
+            &:nth-child(2) {
+              padding: 2px 6px !important;
+              @include primaryOutlined();
+            }
+            &:hover {
+              color: $primaryColor !important;
+            }
+          }
+          .largeDisplayAvatarImage {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+  &[data-scrolled="true"] {
+    .header {
+      background-color: $whiteColor !important;
+      @include res_md {
+        box-shadow: none !important;
+      }
+      & > .MuiContainer-root {
+        & > .MuiToolbar-root {
+          h1 {
+            svg {
+              g {
+                &:first-child {
+                  fill: $c-gray-500 !important;
+                }
+              }
+            }
+          }
+          .headerMainSearch {
+            display: flex;
+            flex: 1;
+          }
+          .headerMainNavPages {
+            p {
+              color: $c-gray-500;
+            }
+          }
+          .headerMainSettings {
+            button {
+              &:first-child {
+                color: $c-gray-500;
+              }
+            }
+          }
+          & > .MuiBox-root {
+            & > .MuiButtonBase-root {
+              svg {
+                color: $c-gray-500;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

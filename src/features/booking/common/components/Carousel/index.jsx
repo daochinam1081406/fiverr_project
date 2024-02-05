@@ -11,7 +11,7 @@ import { Autocomplete } from "@mui/material";
 
 import "./globalStyle.scss";
 import { Container } from "@mui/system";
-import instance from "../../../../../instance/instance";
+import instance from "app/instance";
 import Highlighter from "react-highlight-words";
 import { useNavigate } from "react-router-dom";
 

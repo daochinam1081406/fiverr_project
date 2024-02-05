@@ -1,0 +1,146 @@
+@import "assets/scss/Helpers/variables.scss";
+@import "assets/scss/Helpers/mixins.scss";
+
+.headerNavPageSmallMenu {
+  .headerNavPageSmallMenuWrap {
+    padding-block: 16px;
+    & > h1 {
+      a {
+        padding: 10px 16px !important;
+        display: inline-block;
+        font-weight: 500;
+      }
+    }
+    & > .MuiList-root {
+      & > .MuiListItem-root {
+        & > .MuiButtonBase-root {
+          & > .MuiListItemText-root {
+            transition: 0.4s;
+            color: $c-gray-700;
+            span {
+              font-size: 16px;
+              font-weight: 500;
+            }
+            &:hover {
+              color: $primaryColor;
+            }
+          }
+          &:hover {
+            background-color: transparent;
+          }
+          & > .MuiPaper-root {
+            width: 100%;
+            box-shadow: none;
+            border: none;
+            & > .MuiButtonBase-root {
+              padding-inline: 0;
+              color: $c-gray-700;
+              transition: 0.4s;
+              min-height: unset;
+              & > .MuiAccordionSummary-content {
+                margin-block: 0;
+              }
+              &:hover {
+                color: $primaryColor;
+              }
+              p {
+                font-size: 16px;
+                font-weight: 500;
+              }
+              & > .MuiAccordionSummary-expandIconWrapper {
+                color: inherit;
+              }
+            }
+            & > .MuiCollapse-root {
+              .MuiAccordionDetails-root {
+                padding-block: 0;
+                p {
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: $c-gray-700;
+                  padding-block: 6px;
+                  transition: 0.4s;
+                  &:hover {
+                    color: $primaryColor;
+                    font-weight: 500;
+                  }
+                }
+                .MuiPaper-root {
+                  width: 100%;
+                  box-shadow: none;
+                  border: none;
+                  margin-block: 0;
+                  .MuiButtonBase-root {
+                    padding-inline: 0;
+                    color: $c-gray-700;
+                    transition: 0.4s;
+                    min-height: 50px;
+                    & > .MuiAccordionSummary-content {
+                      margin-block: 0;
+                    }
+                    &:hover {
+                      color: $primaryColor;
+                    }
+                    .MuiTypography-root {
+                      color: inherit;
+                      font-weight: 500;
+                    }
+                    .MuiAccordionSummary-expandIconWrapper {
+                      color: inherit;
+                      font-weight: 500;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.smallDisplaySettings {
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+  }
+}
+
+.headerNavSmallSearch {
+  display: none !important;
+  @include res_sm {
+    display: flex !important;
+  }
+  .MuiAutocomplete-root {
+    .headerNavSmallSearchInputWrapper {
+      & > div {
+        input {
+          max-width: 300px;
+          width: 100%;
+          padding-left: 35px;
+          font-size: 14px;
+          border: 1px solid $c-border;
+          padding-block: 4px;
+          border-radius: 4px;
+        }
+        & > div {
+          background-color: #222325;
+          padding-inline: 4px;
+          border-radius: 4px;
+          svg {
+            color: $whiteColor;
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.MuiTouchRipple-root {
+  display: none;
+}

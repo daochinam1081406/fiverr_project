@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import instance from "../../../../../instance/instance";
+import instance from "app/instance";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HerosBanner from "../HerosBanner";

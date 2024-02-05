@@ -1,4 +1,4 @@
-import instance from "../../../../../instance/instance";
+import instance from "app/instance";
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import lodashIsEmpty from "lodash.isempty";

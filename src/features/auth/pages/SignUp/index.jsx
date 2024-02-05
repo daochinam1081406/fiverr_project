@@ -20,7 +20,7 @@ import {
   RadioGroup,
   TextField,
 } from "@mui/material";
-import instance from "../../../../instance/instance";
+import instance from "app/instance";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 

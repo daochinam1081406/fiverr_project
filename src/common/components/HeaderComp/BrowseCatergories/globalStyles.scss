@@ -1,0 +1,94 @@
+@import "assets/scss/Helpers/variables.scss";
+@import "assets/scss/Helpers/mixins.scss";
+
+body {
+  .headerBrowseCategories {
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    border: 1px solid $c-border;
+    border-right: none;
+    border-left: none;
+    top: $mainHeaderHeight;
+    left: 0;
+    right: 0;
+    background-color: $whiteColor;
+    transform: rotateX(90deg);
+    .MuiContainer-root {
+      padding-inline: 32px;
+      .headerBrowseCategoryWrap {
+        padding: 10px 10px;
+        transition: 0.4s;
+        cursor: pointer;
+        &:hover {
+          color: $primaryColor !important;
+        }
+      }
+      .slick-slider {
+        .slick-arrow {
+          height: 100%;
+          z-index: 10;
+          &::before {
+            display: none;
+          }
+          svg {
+            font-size: 30px;
+            color: $c-gray-700;
+          }
+          &.slick-next {
+            padding-inline: 50px;
+            background: linear-gradient(270deg, #fff 50%, hsla(0, 0%, 100%, 0));
+          }
+          &.slick-prev {
+            padding-right: 80px;
+            background: linear-gradient(90deg, #fff 50%, hsla(0, 0%, 100%, 0));
+          }
+        }
+      }
+    }
+  }
+  &[data-scrolled] {
+    .headerBrowseCategories {
+      opacity: 1;
+      visibility: visible;
+      transform: rotateX(0);
+      .headerBrowseCategoryWrap {
+        color: $c-gray-500;
+      }
+    }
+  }
+}
+
+.MuiTooltip-popper {
+  .MuiTooltip-tooltip {
+    .headerBrowseCategoryItem {
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      .headerBrowseCategoryItemMain {
+        width: 50%;
+        padding-inline: 10px;
+        & > div {
+          h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: $c-gray-700;
+            margin-bottom: 8px;
+          }
+          p {
+            font-size: 16px;
+            font-weight: 400;
+            color: $c-gray-700;
+            transition: 0.4s;
+            padding: 6px 0;
+            &:hover {
+              cursor: pointer;
+              color: $primaryColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}
