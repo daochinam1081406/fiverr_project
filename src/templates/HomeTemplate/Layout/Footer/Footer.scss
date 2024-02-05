@@ -1,0 +1,118 @@
+.Footer {
+  .container {
+    max-width: 1400px;
+    .grid {
+      h2 {
+        color: #404145;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .flex {
+        ul {
+          li {
+            margin-bottom: 16px;
+            a {
+              color: #74767e;
+              font-size: 16px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+    .footer-bottom {
+      .left {
+        .fiverr-logo-footer {
+        }
+      }
+      .right {
+        .socials {
+          li {
+            margin-right: 25px;
+            .link {
+              .icon {
+                width: 20px;
+                height: 20px;
+                font-size: 25px;
+                color: rgb(133, 133, 133);
+              }
+            }
+          }
+        }
+        .setting {
+          ul {
+            li {
+              margin-right: 25px;
+
+              span {
+                font-size: 16px;
+                font-weight: 500;
+                color: rgb(133, 133, 133);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+    .Footer {
+      .container {
+        .grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .footer-bottom {
+          flex-direction: column;
+          .left {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+}
+
+@media (max-width: 576px) {
+  .Footer {
+    .container {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Footer {
+    .container {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .footer-bottom {
+        padding: 15px 0 !important;
+        flex-direction: column;
+        .left {
+          flex-direction: column;
+          margin-bottom: 10px;
+          .fiverr-logo-footer {
+            margin-bottom: 5px;
+          }
+          .copyright  {
+            margin-left: 0;
+          }
+        }
+        .right {
+          flex-direction: column;
+          .socials {
+            margin-right: 0;
+          }
+          .setting {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

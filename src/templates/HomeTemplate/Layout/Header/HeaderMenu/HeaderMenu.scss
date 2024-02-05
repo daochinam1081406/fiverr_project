@@ -1,0 +1,24 @@
+.header-menu {
+    display: block;
+    border-top: 1px solid #ccc;
+    .container {
+        max-width: 1400px;
+        ul {
+            display: flex;
+            justify-content: space-between;
+        }
+        .ant-menu::before {
+            content: none;
+        }
+    }
+    
+}
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected::after {
+    border-bottom: 3px solid #1dbf73 !important;
+}
+.Header.scroll {
+    .header-menu {
+        border-top: 1px solid #ccc;
+        display: block;
+    }
+}

@@ -2,28 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
-
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
+html,
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+
+  
+  @font-face {
+    font-display: swap;
+    font-family: "macan";
+    font-style: normal;
+    font-weight: 300;
+    src: url(../src/assets/font/macan-bold.woff2) !important;
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "macan";
+    font-style: normal;
+    font-weight: 400;
+    src: url(../src/assets/font/macan-regular.woff2) !important;
+  }
+  @font-face {
+    font-display: swap;
+    font-family: "macan";
+    font-style: normal;
+    font-weight: 600;
+    src: url(../src/assets/font/macan-regular.woff2) !important;
+  }
+  @font-face {
+    font-display: swap;
+    font-family: "macan";
+    font-style: normal;
+    font-weight: 700;
+    src: url(../src/assets/font/macan-bold.woff2) !important;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.container {
+  max-width: 1320px !important;
+  margin: auto;
+  padding: 0 32px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  padding-left: 0 !important;
 }

@@ -1,0 +1,32 @@
+form {
+  .ant-col-sm-8 {
+    max-width: 100%;
+  }
+  .ant-col-xs-10 {
+    max-width: 100%;
+  }
+  .ant-form-item-label {
+    text-align: left;
+  }
+}
+
+.ant-select-dropdown {
+  z-index: 1080 !important;
+}
+
+.ant-picker-dropdown {
+  z-index: 1080 !important;
+}
+
+@media (max-width: 768px) {
+  .Register {
+    .register-width {
+      width: 100%;
+      .register-form {
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

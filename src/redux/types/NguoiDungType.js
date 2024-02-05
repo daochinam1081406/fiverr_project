@@ -1,0 +1,11 @@
+export const GET_USER_ACTION = 'GET_USER_ACTION'
+
+export const GET_USER_ID_ACTION = 'GET_USER_ID_ACTION'
+
+export const PUT_USER_ID_ACTION = 'PUT_USER_ID_ACTION'
+
+// ADMIN
+export const POST_USER_ACTION = 'POST_USER_ACTION'
+
+export const SEARCH_USER = 'SEARCH_USER'
+
