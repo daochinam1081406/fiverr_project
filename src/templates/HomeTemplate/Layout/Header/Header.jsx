@@ -90,6 +90,7 @@ export default function Header(props) {
                 Become a Seller
               </Link>
             </li>
+
             {userLogin.token ? (
               <DropdownButton
                 id="dropdown-basic-button"
@@ -98,13 +99,15 @@ export default function Header(props) {
                 <Dropdown.Item>
                   <span className="hover:text-orange-500 duration-300 flex items-center">
                     <img
-                      src={`https://i.pravatar.cc/150?u/${userLogin.user.name}`}
+                      src={`https://i.pravatar.cc/150?u/${userLogin.user.id}`}
                       className="w-8 rounded-full"
                       alt="..."
                     />
                   </span>
                 </Dropdown.Item>
-                {/* <Dropdown.Item href="/admin">Admin</Dropdown.Item> */}
+                {`${userLogin.user.role}` === "ADMIN" && (
+                  <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                )}
                 <Dropdown.Item href={`/profile/${userLogin.user.id}`}>
                   Profile
                 </Dropdown.Item>
