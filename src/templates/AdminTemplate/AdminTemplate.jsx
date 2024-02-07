@@ -24,7 +24,6 @@ export default function AdminTemplate() {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const onCollapse = (collapsed) => {
-    // console.log(collapsed);
     setCollapsed(collapsed);
   };
   useEffect(() => {
