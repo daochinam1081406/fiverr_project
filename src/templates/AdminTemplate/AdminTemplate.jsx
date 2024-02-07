@@ -155,7 +155,7 @@ export default function AdminTemplate() {
               textAlign: "center",
             }}
           >
-            Copy right@ 2024 D.
+            Copyright@ 2024 D.
           </Footer>
         </Layout>
       </Layout>

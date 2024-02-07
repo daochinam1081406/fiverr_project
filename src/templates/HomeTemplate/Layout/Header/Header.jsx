@@ -106,7 +106,7 @@ export default function Header(props) {
                   </span>
                 </Dropdown.Item>
                 {`${userLogin.user.role}` === "ADMIN" && (
-                  <Dropdown.Item href="/admin">Admin</Dropdown.Item>
+                  <Dropdown.Item href="/admin">Administrator</Dropdown.Item>
                 )}
                 <Dropdown.Item href={`/profile/${userLogin.user.id}`}>
                   Profile
