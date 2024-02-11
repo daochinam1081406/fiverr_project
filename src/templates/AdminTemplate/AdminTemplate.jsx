@@ -48,7 +48,15 @@ export default function AdminTemplate() {
             id="dropdown-basic-button"
             title={`${userLogin.user.name}`}
           >
-            {/* <Dropdown.Item href="/admin">Admin</Dropdown.Item> */}
+            <Dropdown.Item>
+              <span className="hover:text-orange-500 duration-300 flex items-center">
+                <img
+                  src={userLogin.user.avatar}
+                  className="w-8 rounded-full"
+                  alt="..."
+                />
+              </span>
+            </Dropdown.Item>
             <Dropdown.Item href={`/profile/${userLogin.user.id}`}>
               Profile
             </Dropdown.Item>

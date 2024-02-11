@@ -44,34 +44,10 @@ export default function HeaderMenu() {
       );
     });
   };
-  // const renderItemMenu = () => {
-  //     return menuJob?.map((item, index) => {
-  //         return <Menu.Item icon={<AppstoreOutlined />}>
-  //             {item.tenNhom}
-  //         </Menu.Item>
-  //     })
-  // }
+
   return (
     <>
       <Menu mode="horizontal" defaultSelectedKeys={["mail"]}>
-        {/* <Menu.SubMenu key="SubMenu" title="Graphic & Design" >
-
-                    <Menu.Item key="four" icon={<AppstoreOutlined />}>
-                        Logo Design
-                    </Menu.Item>
-                    <Menu.Item key="five" icon={<AppstoreOutlined />}>
-                        Brand Style Guides
-                    </Menu.Item>
-
-                    <Menu.Item key="four" icon={<AppstoreOutlined />}>
-                        Navigation Four
-                    </Menu.Item>
-                    <Menu.Item key="five" icon={<AppstoreOutlined />}>
-                        Navigation Five
-                    </Menu.Item>
-
-                </Menu.SubMenu> */}
-
         {renderMenuJob()}
       </Menu>
     </>

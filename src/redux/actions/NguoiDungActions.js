@@ -3,6 +3,7 @@ import {
   GET_USER_ACTION,
   GET_USER_ID_ACTION,
   POST_USER_ACTION,
+  POST_AVATAR_ACTION,
   PUT_USER_ID_ACTION,
   SEARCH_USER,
 } from "../types/NguoiDungType";
@@ -63,6 +64,31 @@ export const postUserAction = (values) => {
       if (result.status === 200) {
         dispatch({
           type: POST_USER_ACTION,
+          userId: result.data?.content,
+        });
+      }
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Bạn đã thêm thành công !",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(function () {
+        window.location.reload();
+      });
+    } catch (error) {
+      console.log("error: ", error.response?.data);
+    }
+  };
+};
+
+export const postAvatarAction = (values) => {
+  return async (dispatch) => {
+    try {
+      const result = await nguoiDungServices.postAvatarService(values);
+      if (result.status === 200) {
+        dispatch({
+          type: POST_AVATAR_ACTION,
           userId: result.data?.content,
         });
       }

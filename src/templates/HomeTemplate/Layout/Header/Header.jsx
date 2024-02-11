@@ -99,7 +99,7 @@ export default function Header(props) {
                 <Dropdown.Item>
                   <span className="hover:text-orange-500 duration-300 flex items-center">
                     <img
-                      src={`https://i.pravatar.cc/150?u/${userLogin.user.id}`}
+                      src={userLogin.user.avatar}
                       className="w-8 rounded-full"
                       alt="..."
                     />

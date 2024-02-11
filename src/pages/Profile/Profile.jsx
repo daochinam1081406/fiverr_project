@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { getUserIdAction } from "../../redux/actions/NguoiDungActions";
+import {
+  getUserIdAction,
+  postAvatarAction,
+} from "../../redux/actions/NguoiDungActions";
 import { Modal } from "react-bootstrap";
 import FormEditUser from "./FormEditUser/FormEditUser";
 import "./Profile.scss";
@@ -35,6 +38,12 @@ export default function Profile() {
   }, []);
 
   const [showModal, setshowModal] = useState(false);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      dispatch(postAvatarAction(file));
+    }
+  };
 
   return (
     <div className="Profile py-36">
@@ -43,25 +52,28 @@ export default function Profile() {
           <div className="col-4">
             <div className="card card-top">
               <div className="avatar text-center items-center mx-auto mt-3">
-                <div role="button" className="upload-img d-none d-lg-block">
-                  {/* <div className="bg-svg">{cameraImg}</div> */}
-                  <div
-                    style={{
-                      width: 80,
-                      height: 80,
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                    className="text-2xl rounded-full bg-gray-400 text-center mx-auto"
-                  >
-                    <span>{userId.name.substr(0, 1)}</span>
-                  </div>
+                <div className="avatar text-center items-center mx-auto mt-3">
+                  <label htmlFor="uploadAvatar" className="upload-img">
+                    <div
+                      style={{
+                        width: 80,
+                        height: 80,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                      className="text-2xl rounded-full bg-gray-400 text-center mx-auto"
+                    >
+                      <span>{userId.name.substr(0, 1)}</span>
+                    </div>
+                  </label>
                   <input
+                    id="uploadAvatar"
                     className="d-none"
                     type="file"
                     name="uploadAvatar"
                     accept="image/png, image/jpeg, image/jpg"
+                    onChange={handleFileChange}
                   />
                 </div>
                 <h4 className="card-title mx-auto mt-2">{userId.name}</h4>
