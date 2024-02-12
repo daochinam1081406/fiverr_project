@@ -9,15 +9,12 @@ import { Modal } from "react-bootstrap";
 import FormEditUser from "./FormEditUser/FormEditUser";
 import "./Profile.scss";
 import {
-  LayDanhSachCongViecDaThue,
   LayDanhSachCongViecDaThueActions,
-  XoaCongViec,
   XoaCongViecAction,
 } from "../../redux/actions/ThueCongViecActions";
 
 export default function Profile() {
   const { userId } = useSelector((state) => state.NguoiDungReducers);
-
   const { dsCongViecDaThue } = useSelector(
     (state) => state.ThueCongViecReducers
   );
@@ -27,21 +24,18 @@ export default function Profile() {
 
   useEffect(() => {
     dispatch(getUserIdAction(idProfile));
-  }, []);
-
-  useEffect(() => {
     dispatch(LayDanhSachCongViecDaThueActions());
-  }, []);
-
-  useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [idProfile, dispatch]);
 
   const [showModal, setshowModal] = useState(false);
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       dispatch(postAvatarAction(file));
+    } else {
+      console.error("No file selected!");
     }
   };
 

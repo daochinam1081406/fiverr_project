@@ -58,10 +58,11 @@ export const NguoiDungReducers = (state = stateDefault, action) => {
       state.userId = action.userId;
       return { ...state };
     }
-    case POST_AVATAR_ACTION: {
-      state.avatar = action.avatar;
-      return { ...state };
-    }
+    case POST_AVATAR_ACTION:
+      return {
+        ...state,
+        formFile: action.formFile,
+      };
 
     case SEARCH_USER: {
       state.searchUser = action.searchUser;

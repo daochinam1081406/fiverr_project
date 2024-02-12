@@ -82,14 +82,14 @@ export const postUserAction = (values) => {
   };
 };
 
-export const postAvatarAction = (values) => {
+export const postAvatarAction = (formdata) => {
   return async (dispatch) => {
     try {
-      const result = await nguoiDungServices.postAvatarService(values);
+      const result = await nguoiDungServices.postAvatarService(formdata);
       if (result.status === 200) {
         dispatch({
           type: POST_AVATAR_ACTION,
-          userId: result.data?.content,
+          //  userId: result.data?.content,
         });
       }
       Swal.fire({
@@ -102,7 +102,7 @@ export const postAvatarAction = (values) => {
         window.location.reload();
       });
     } catch (error) {
-      console.log("error: ", error.response?.data);
+      console.log("error: ssdsdsd", error.response?.data);
     }
   };
 };

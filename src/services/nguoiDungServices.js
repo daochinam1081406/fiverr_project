@@ -29,11 +29,10 @@ export const nguoiDungServices = {
   searchUserSerVice: (valueSearch) => {
     return api.get(`users/search/${valueSearch}`);
   },
-  postAvatarService: (formData) => {
-    return api.post(`users/upload-avatar`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+  postAvatarService: (formFile) => {
+    const formData = new FormData();
+    formData.append("formFile", formFile);
+
+    return api.post(`/users/upload-avatar`, formData);
   },
 };
