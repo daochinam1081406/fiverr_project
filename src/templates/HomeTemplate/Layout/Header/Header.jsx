@@ -100,7 +100,10 @@ export default function Header(props) {
                   <span className="hover:text-orange-500 duration-300 flex items-center ">
                     <img
                       className="w-8 rounded-full profile-img"
-                      src={userLogin.user.avatar}
+                      src={
+                        JSON.parse(localStorage.getItem("USER_LOGIN")).user
+                          .avatar
+                      }
                       alt="..."
                     />
                   </span>

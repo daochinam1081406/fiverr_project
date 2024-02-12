@@ -86,11 +86,19 @@ export const postAvatarAction = (formdata) => {
   return async (dispatch) => {
     try {
       const result = await nguoiDungServices.postAvatarService(formdata);
+
+      console.log(result.data?.content);
       if (result.status === 200) {
         dispatch({
           type: POST_AVATAR_ACTION,
-          //  userId: result.data?.content,
+          ThongTinDangNhap: result.data?.content,
         });
+        const avatar = result.data?.content?.avatar;
+        const userLoginData = JSON.parse(localStorage.getItem("USER_LOGIN"));
+        if (userLoginData) {
+          userLoginData.user.avatar = avatar;
+          localStorage.setItem("USER_LOGIN", JSON.stringify(userLoginData));
+        }
       }
       Swal.fire({
         position: "center",

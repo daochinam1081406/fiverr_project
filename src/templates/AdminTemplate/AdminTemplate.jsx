@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   DesktopOutlined,
   FileOutlined,
@@ -8,27 +9,31 @@ import {
 } from "@ant-design/icons";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { Breadcrumb, Layout, Menu } from "antd";
+import { Avatar, Layout, Menu } from "antd";
 import { Navigate, NavLink, Outlet, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { TOKEN, USER_LOGIN } from "../../util/settings/config";
 import _ from "lodash";
 import QuanLyNguoiDung from "../../pages/Admin/QuanLyNguoiDung/QuanLyNguoiDung";
 import "./AdminTemplate.scss";
 import QuanLyCongViec from "../../pages/Admin/QuanLyCongViec/QuanLyCongViec";
+import Profile from "../../pages/Profile/Profile";
+
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 
 export default function AdminTemplate() {
+  const dispatch = useDispatch();
   const { userLogin } = useSelector((state) => state.AuthReducers);
+
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
+
   const onCollapse = (collapsed) => {
     setCollapsed(collapsed);
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   if (!localStorage.getItem(USER_LOGIN)) {
     alert("Bạn không có quyền truy cập vào trang này !");
@@ -39,6 +44,7 @@ export default function AdminTemplate() {
     alert("Bạn không có quyền truy cập vào trang này !");
     return <Navigate to="/" />;
   }
+
   const operations = (
     <Fragment>
       {!_.isEmpty(userLogin) ? (
@@ -51,8 +57,10 @@ export default function AdminTemplate() {
             <Dropdown.Item>
               <span className="hover:text-orange-500 duration-300 flex items-center">
                 <img
-                  src={userLogin.user.avatar}
-                  className="w-8 rounded-full"
+                  className="w-8 rounded-full profile-img"
+                  src={
+                    JSON.parse(localStorage.getItem("USER_LOGIN")).user.avatar
+                  }
                   alt="..."
                 />
               </span>
@@ -65,7 +73,6 @@ export default function AdminTemplate() {
               onClick={() => {
                 localStorage.removeItem(USER_LOGIN);
                 localStorage.removeItem(TOKEN);
-
                 window.location.reload();
               }}
             >
@@ -78,13 +85,10 @@ export default function AdminTemplate() {
       )}
     </Fragment>
   );
+
   return (
     <>
-      <Layout
-        style={{
-          minHeight: "100vh",
-        }}
-      >
+      <Layout style={{ minHeight: "100vh" }}>
         <Sider
           collapsible
           collapsed={collapsed}
@@ -126,21 +130,6 @@ export default function AdminTemplate() {
             <Menu.Item key="4" icon={<DesktopOutlined />}>
               <NavLink to="/admin/QuanLyDichVu">Quản lý dịch vụ</NavLink>
             </Menu.Item>
-            {/* <SubMenu key="sub1" icon={<FileOutlined />} title="Films">
-              <Menu.Item key="10" icon={<FileOutlined />}>
-                <NavLink to="/admin/films">Films</NavLink>
-
-              </Menu.Item>
-              <Menu.Item key="11" icon={<FileOutlined />}>
-                <NavLink to="/admin/films/addnew">Add new</NavLink>
-
-
-              </Menu.Item>
-            </SubMenu>
-            <Menu.Item key="3" icon={<DesktopOutlined />}>
-              <NavLink to="/admin/showtimes">Showtime</NavLink>
-
-            </Menu.Item> */}
           </Menu>
         </Sider>
 
@@ -154,8 +143,6 @@ export default function AdminTemplate() {
             }}
           >
             <Outlet />
-            {/* <QuanLyNguoiDung /> */}
-            {/* <QuanLyCongViec /> */}
           </Content>
           <Footer
             style={{

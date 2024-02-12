@@ -56,14 +56,7 @@ export default function Login(props) {
                 Welcome back Fiverr !
               </h1>
               <div className="mt-6">
-                {/* <div className="relative">
-                  <input onChange={formik.handleChange} name="email" type="text" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-rose-600" placeholder="Nhập email của bạn" />
-                  <label htmlFor="email" className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email</label>
-                </div>
-                <div className="mt-10 relative">
-                  <input onChange={formik.handleChange} name="password" type='password' className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-rose-600" placeholder="Nhập mật khẩu của bạn" />
-                  <label htmlFor="password" className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Mật khẩu</label>
-                </div> */}
+                {}
                 <Form.Item
                   name="email"
                   label="Email"
