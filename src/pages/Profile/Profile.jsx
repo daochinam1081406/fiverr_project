@@ -15,6 +15,7 @@ import {
 
 export default function Profile() {
   const { userId } = useSelector((state) => state.NguoiDungReducers);
+
   const { dsCongViecDaThue } = useSelector(
     (state) => state.ThueCongViecReducers
   );
@@ -48,17 +49,8 @@ export default function Profile() {
               <div className="avatar text-center items-center mx-auto mt-3">
                 <div className="avatar text-center items-center mx-auto mt-3">
                   <label htmlFor="uploadAvatar" className="upload-img">
-                    <div
-                      style={{
-                        width: 80,
-                        height: 80,
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                      className="text-2xl rounded-full bg-gray-400 text-center mx-auto"
-                    >
-                      <span>{userId.name.substr(0, 1)}</span>
+                    <div className="text-2xl rounded-full bg-gray-400 text-center mx-auto">
+                      <img className="profile-img" src={userId.avatar} alt="" />
                     </div>
                   </label>
                   <input

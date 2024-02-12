@@ -128,7 +128,7 @@ export default function QuanLyNguoiDung() {
     <div>
       <h3 className="text-4xl my-3">Quản lý người dùng</h3>
       <Button className="mb-5" onClick={() => setshowModal(true)}>
-        Thêm quản trị viên
+        Thêm người dùng
       </Button>
       <Search
         className="mb-5"

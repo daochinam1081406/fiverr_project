@@ -97,10 +97,10 @@ export default function Header(props) {
                 title={`${userLogin.user.name}`}
               >
                 <Dropdown.Item>
-                  <span className="hover:text-orange-500 duration-300 flex items-center">
+                  <span className="hover:text-orange-500 duration-300 flex items-center ">
                     <img
+                      className="w-8 rounded-full profile-img"
                       src={userLogin.user.avatar}
-                      className="w-8 rounded-full"
                       alt="..."
                     />
                   </span>
