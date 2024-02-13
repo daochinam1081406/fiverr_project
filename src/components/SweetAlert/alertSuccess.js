@@ -6,7 +6,7 @@ const alertSuccess = () => {
   Swal.fire({
     position: "center",
     icon: "success",
-    title: "Bạn đã thuê thành công !",
+    title: "Booking success !",
     showConfirmButton: false,
     timer: 1500,
   }).then(function () {
@@ -15,11 +15,10 @@ const alertSuccess = () => {
 };
 
 const alertDeleteSuccess = () => {
-  // const navigate = useNavigate()
   Swal.fire({
     position: "center",
     icon: "success",
-    title: "Bạn đã xóa thành công !",
+    title: "Remove success !",
     showConfirmButton: false,
     timer: 1500,
   });

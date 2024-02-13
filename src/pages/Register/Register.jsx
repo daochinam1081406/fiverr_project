@@ -86,15 +86,12 @@ export default function Register() {
                   onFinish={formik.handleSubmit}
                   {...formItemLayout}
                   form={form}
-                  // name='formEditUser'
-
-                  // scrollToFirstError
                   size="large"
                   autoComplete="off"
                 >
                   <Form.Item
                     name="name"
-                    label="Tên"
+                    label="Name"
                     rules={[
                       {
                         required: true,
@@ -109,7 +106,7 @@ export default function Register() {
                       name="name"
                       value={formik.values.name}
                       onChange={formik.handleChange}
-                      placeholder="Nhập tên"
+                      placeholder="Name"
                     />
                   </Form.Item>
                   <Form.Item
@@ -131,12 +128,12 @@ export default function Register() {
                       name="email"
                       value={formik.values.email}
                       onChange={formik.handleChange}
-                      placeholder="Nhập email"
+                      placeholder="Email"
                     />
                   </Form.Item>
                   <Form.Item
                     name="password"
-                    label="Mật khẩu"
+                    label="Password"
                     rules={[
                       {
                         required: true,
@@ -150,12 +147,12 @@ export default function Register() {
                       type="password"
                       value={formik.values.password}
                       onChange={formik.handleChange}
-                      placeholder="Nhập mật khẩu"
+                      placeholder="Password"
                     />
                   </Form.Item>
                   <Form.Item
                     name="confirm_password"
-                    label="Nhập lại mật khẩu"
+                    label="Confirm password"
                     dependencies={["password"]}
                     rules={[
                       {
@@ -183,7 +180,7 @@ export default function Register() {
                   </Form.Item>
                   <Form.Item
                     name="phone"
-                    label="Số điện thoại"
+                    label="Phone number"
                     rules={[
                       {
                         required: true,
@@ -203,12 +200,12 @@ export default function Register() {
                       name="phone"
                       value={formik.values.phone}
                       onChange={formik.handleChange}
-                      placeholder="Nhập số điện thoại"
+                      placeholder="Phone number"
                     />
                   </Form.Item>
 
                   <Form.Item
-                    label="Ngày sinh"
+                    label="Birthday"
                     name="birthday"
                     rules={[
                       {
@@ -306,78 +303,6 @@ export default function Register() {
                     </button>
                   </Form.Item>
                 </Form>
-                {/* <Form
-                  onFinish={formik.handleSubmit}
-
-                  {...formItemLayout}
-                  // form={form}
-                  // name='formEditUser'
-
-                  // scrollToFirstError
-                  size="large"
-                >
-                  <Form.Item
-
-                    label="Name"
-
-                  >
-                    <Input name="name" value={formik.values.name} onChange={formik.handleChange} />
-                  </Form.Item>
-                  <Form.Item
-
-                    label="Email"
-
-                  >
-                    <Input name="email" value={formik.values.email} onChange={formik.handleChange} />
-                  </Form.Item>
-
-                  <Form.Item
-
-                    label="Số điện thoại"
-
-                  >
-                    <Input style={{ width: "100%" }} name="phone" value={formik.values.phone} onChange={formik.handleChange} />
-                  </Form.Item>
-
-                  <Form.Item
-                    label="Ngày sinh"
-
-
-                  >
-                    <DatePicker name='birthday' format={"DD/MM/YYYY"} value={moment(formik.values.birthday)} />
-                  </Form.Item>
-                  <Form.Item label="Gender">
-                    <Select name="gender" placeholder="Select your certification" value={formik.values.gender} onChange={handleChangeGender}>
-                      <Option value={true}>Male</Option>
-                      <Option value={false}>Female</Option>
-                    </Select>
-                  </Form.Item>
-                  <Form.Item label="Skill" >
-                    <Select name="skill" placeholder="Select your skills" value={formik.values.skill} onChange={handleChangeSkill}>
-                      <Option value="Front-end Developer">Front-end Developer</Option>
-                      <Option value="Back-end Developer ">Back-end Developer</Option>
-                      <Option value="Fullstack">Fullstack</Option>
-                      <Option value="React Js">React Js</Option>
-                      <Option value="Node Js">Node Js</Option>
-                    </Select>
-                  </Form.Item>
-                  <Form.Item label="Certification">
-                    <Select name="certification" placeholder="Select your certification" value={formik.values.certification} onChange={handleChangeCertification}>
-                      <Option value="CyberSoft Academy">CyberSoft Academy</Option>
-                      <Option value="AWS">AWS</Option>
-                    </Select>
-                  </Form.Item>
-                  <Form.Item className="text-right">
-
-
-                    <button className="bg-green-500 text-gray-100 text-xl p-2 w-full rounded-full tracking-wide
-                          font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-green-600
-                          shadow-lg" >
-                      Đăng nhập
-                    </button>
-                  </Form.Item>
-
-                </Form> */}
               </>
               <div className="text-center mt-3">
                 Bạn đã có tài khoản ?{" "}

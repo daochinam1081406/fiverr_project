@@ -16,7 +16,7 @@ export const dangNhapAction = (thongTinDangNhap, navigate) => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Bạn đã đăng nhập thành công !",
+          title: "Login success !",
           showConfirmButton: false,
           timer: 1500,
         }).then(function () {

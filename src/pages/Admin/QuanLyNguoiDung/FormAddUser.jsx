@@ -64,7 +64,7 @@ export default function FormAddUser({ setshowModal }) {
       // scrollToFirstError
       size="large"
     >
-      <Form.Item label="Tên">
+      <Form.Item label="Name">
         <Input
           name="name"
           value={formik.values.name}
@@ -79,7 +79,7 @@ export default function FormAddUser({ setshowModal }) {
         />
       </Form.Item>
 
-      <Form.Item label="Số điện thoại">
+      <Form.Item label="Phone number">
         <Input
           style={{ width: "100%" }}
           name="phone"
@@ -87,7 +87,7 @@ export default function FormAddUser({ setshowModal }) {
           onChange={formik.handleChange}
         />
       </Form.Item>
-      <Form.Item label="Mật khẩu">
+      <Form.Item label="Password">
         <Input
           style={{ width: "100%" }}
           name="password"
@@ -95,7 +95,7 @@ export default function FormAddUser({ setshowModal }) {
           onChange={formik.handleChange}
         />
       </Form.Item>
-      <Form.Item label="Vai trò">
+      <Form.Item label="Role">
         <Select
           name="role"
           placeholder="Select your role"
@@ -112,17 +112,11 @@ export default function FormAddUser({ setshowModal }) {
           onClick={() => setshowModal(false)}
           className="btn btn-primary  mr-3"
         >
-          Hủy
+          Cancel
         </button>
 
-        <button
-          type="submit"
-          className="btn btn-success"
-          onClick={() => {
-            // dispatch(postUserAction())
-          }}
-        >
-          Thêm
+        <button type="submit" className="btn btn-success" onClick={() => {}}>
+          Add
         </button>
       </Form.Item>
     </Form>

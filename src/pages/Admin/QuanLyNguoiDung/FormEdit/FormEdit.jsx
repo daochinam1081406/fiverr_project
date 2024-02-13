@@ -80,7 +80,7 @@ export default function FormEdit({ setshowModalEdit }) {
         />
       </Form.Item>
 
-      <Form.Item label="Số điện thoại">
+      <Form.Item label="Phone number">
         <Input
           style={{ width: "100%" }}
           name="phone"
@@ -88,7 +88,7 @@ export default function FormEdit({ setshowModalEdit }) {
           onChange={formik.handleChange}
         />
       </Form.Item>
-      <Form.Item label="Mật khẩu">
+      <Form.Item label="Password">
         <Input
           style={{ width: "100%" }}
           name="password"
@@ -96,7 +96,7 @@ export default function FormEdit({ setshowModalEdit }) {
           onChange={formik.handleChange}
         />
       </Form.Item>
-      <Form.Item label="Vai trò">
+      <Form.Item label="Role">
         <Select
           name="role"
           placeholder="Select your role"
@@ -114,16 +114,10 @@ export default function FormEdit({ setshowModalEdit }) {
           onClick={() => setshowModalEdit(false)}
           className="btn btn-primary  mr-3"
         >
-          Hủy
+          Cancel
         </button>
 
-        <button
-          type="submit"
-          className="btn btn-success"
-          onClick={() => {
-            // dispatch(postUserAction())
-          }}
-        >
+        <button type="submit" className="btn btn-success" onClick={() => {}}>
           Update
         </button>
       </Form.Item>

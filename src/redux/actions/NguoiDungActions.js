@@ -70,7 +70,7 @@ export const postUserAction = (values) => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Bạn đã thêm thành công !",
+        title: "Add success !",
         showConfirmButton: false,
         timer: 1500,
       }).then(function () {
@@ -103,7 +103,7 @@ export const postAvatarAction = (formdata) => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Bạn đã thêm thành công !",
+        title: "Add sucess!",
         showConfirmButton: false,
         timer: 1500,
       }).then(function () {
@@ -125,7 +125,7 @@ export const deleteUserAction = (id) => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Bạn đã xóa thành công !",
+        title: "Remove success !",
         showConfirmButton: false,
         timer: 1500,
       }).then(function () {

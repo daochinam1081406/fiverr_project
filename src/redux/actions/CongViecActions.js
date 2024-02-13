@@ -148,7 +148,7 @@ export const addJobAction = (values) => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Bạn đã thêm thành công !",
+        title: "Add success !",
         showConfirmButton: false,
         timer: 1500,
       }).then(function () {
@@ -188,7 +188,7 @@ export const deleteJobAction = (idJob) => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Bạn đã xóa thành công !",
+        title: "Remove success!",
         showConfirmButton: false,
         timer: 1500,
       }).then(function () {

@@ -92,7 +92,7 @@ export default function FormEditUser({ setshowModal }) {
         />
       </Form.Item>
 
-      <Form.Item label="Số điện thoại">
+      <Form.Item label="Phone number">
         <Input
           style={{ width: "100%" }}
           name="phone"
@@ -101,7 +101,7 @@ export default function FormEditUser({ setshowModal }) {
         />
       </Form.Item>
 
-      <Form.Item label="Ngày sinh:">
+      <Form.Item label="Birthday:">
         <DatePicker
           name="birthday"
           format={"DD/MM/YYYY"}
