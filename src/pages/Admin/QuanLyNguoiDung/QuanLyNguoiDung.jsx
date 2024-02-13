@@ -126,9 +126,9 @@ export default function QuanLyNguoiDung() {
   function onChange(pagination, filters, sorter, extra) {}
   return (
     <div>
-      <h3 className="text-4xl my-3">Quản lý người dùng</h3>
+      <h3 className="text-4xl my-3">User management</h3>
       <Button className="mb-5" onClick={() => setshowModal(true)}>
-        Thêm người dùng
+        Add new
       </Button>
       <Search
         className="mb-5"
@@ -157,7 +157,7 @@ export default function QuanLyNguoiDung() {
       <Modal show={showModal} onHide={() => setshowModal(false)}>
         <Modal.Header style={{ justifyContent: "center" }}>
           <Modal.Title>
-            <span className="text-center">Thêm quản trị viên</span>
+            <span className="text-center">Add new user</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -168,7 +168,7 @@ export default function QuanLyNguoiDung() {
       <Modal show={showModalEdit} onHide={() => setshowModalEdit(false)}>
         <Modal.Header style={{ justifyContent: "center" }}>
           <Modal.Title>
-            <span className="text-center">Cập nhât quản trị viên</span>
+            <span className="text-center">Update user</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

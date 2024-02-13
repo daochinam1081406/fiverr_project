@@ -295,10 +295,10 @@ export default function Profile() {
           </div>
         </div>
       </div>
-      <Modal show={showModal} onHide={() => setshowModal(false)}>
+      <Modal show={showModal} onHide={() => setshowModal(true)}>
         <Modal.Header style={{ justifyContent: "center" }}>
           <Modal.Title>
-            <span className="text-center">Cập nhật thông tin</span>
+            <span className="text-center">Update profile</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

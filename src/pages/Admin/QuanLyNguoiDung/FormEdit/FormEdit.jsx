@@ -124,7 +124,7 @@ export default function FormEdit({ setshowModalEdit }) {
             // dispatch(postUserAction())
           }}
         >
-          Cập nhật
+          Update
         </button>
       </Form.Item>
     </Form>

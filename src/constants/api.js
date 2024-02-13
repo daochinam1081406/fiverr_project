@@ -17,7 +17,6 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  // Kiểm tra và cập nhật token nếu cần
   const newToken = localStorage.getItem(TOKEN);
   if (newToken !== token) {
     token = newToken;

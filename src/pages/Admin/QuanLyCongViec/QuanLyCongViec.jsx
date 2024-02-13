@@ -148,7 +148,7 @@ export default function QuanLyCongViec() {
   function onChange(pagination, filters, sorter, extra) {}
   return (
     <div>
-      <h3 className="text-4xl my-3">Quản lý công việc</h3>
+      <h3 className="text-4xl my-3">Job management</h3>
       <Button className="mb-5" onClick={() => setshowModal(true)}>
         Thêm công việc
       </Button>
@@ -169,7 +169,7 @@ export default function QuanLyCongViec() {
       <Modal show={showModal} onHide={() => setshowModal(false)}>
         <Modal.Header style={{ justifyContent: "center" }}>
           <Modal.Title>
-            <span className="text-center">Thêm công việc</span>
+            <span className="text-center">Add new</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -181,7 +181,7 @@ export default function QuanLyCongViec() {
       <Modal show={showModalEdit} onHide={() => setshowModalEdit(false)}>
         <Modal.Header style={{ justifyContent: "center" }}>
           <Modal.Title>
-            <span className="text-center">Cập nhật công việc</span>
+            <span className="text-center">Update job</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

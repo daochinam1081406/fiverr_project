@@ -168,7 +168,7 @@ export const editJobAction = (values) => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Bạn đã cập nhật thành công !",
+        title: "Update success !",
         showConfirmButton: false,
         timer: 1500,
       }).then(function () {

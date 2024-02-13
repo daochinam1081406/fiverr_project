@@ -117,18 +117,18 @@ export default function AdminTemplate() {
 
           <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
             <Menu.Item key="1" icon={<UserOutlined />}>
-              <NavLink to="/admin/QuanLyNguoiDung">Quản lý người dùng</NavLink>
+              <NavLink to="/admin/QuanLyNguoiDung">User management</NavLink>
             </Menu.Item>
             <Menu.Item key="2" icon={<FileOutlined />}>
-              <NavLink to="/admin/QuanLyCongViec">Quản lý công việc</NavLink>
+              <NavLink to="/admin/QuanLyCongViec">Job management</NavLink>
             </Menu.Item>
             <Menu.Item key="3" icon={<FileOutlined />}>
               <NavLink to="/admin/QuanLyLoaiCongViec">
-                Quản lý loại công việc
+                Job type management
               </NavLink>
             </Menu.Item>
             <Menu.Item key="4" icon={<DesktopOutlined />}>
-              <NavLink to="/admin/QuanLyDichVu">Quản lý dịch vụ</NavLink>
+              <NavLink to="/admin/QuanLyDichVu">Service management</NavLink>
             </Menu.Item>
           </Menu>
         </Sider>
