@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Progress } from "antd";
 import { Tabs, Form, Input } from "antd";
 
@@ -8,12 +8,20 @@ import OrderJob from "./OrderJob/OrderJob";
 import { useDispatch, useSelector } from "react-redux";
 import { layCongViecChiTietAction } from "../../redux/actions/CongViecActions";
 import { useParams } from "react-router-dom";
+
 export default function DetailJob() {
   const { userLogin } = useSelector((state) => state.AuthReducers);
 
   const { detailJob, jobId } = useParams();
   const { detailJobs } = useSelector((state) => state.CongViecReducers);
   const dispatch = useDispatch();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -28,6 +36,7 @@ export default function DetailJob() {
           <div className="left col-8">
             <p>
               {detailJobs?.tenLoaiCongViec}
+              {/* 123123 */}
               <i class="fa-solid fa-chevron-right"></i>
               {detailJobs?.tenNhomChiTietLoai}
               <i class="fa-solid fa-chevron-right"></i>
@@ -36,13 +45,14 @@ export default function DetailJob() {
             <h2>{detailJobs?.congViec?.tenCongViec}</h2>
             <div className="user flex">
               <img
+                style={{ heigth: "35px", width: "35px" }}
                 src={
                   detailJobs?.avatar
                     ? detailJobs?.avatar
-                    : "https://picsum.photos/35/35"
+                    : "https://fastly.picsum.photos/id/719/200/300.jpg?hmac=ROd_JjwPBNsmDhuN2yXu9bdtg0T4Nyl1iYA0WDXYpxM"
                 }
                 alt=""
-                className="rounded-full mr-2  "
+                className="rounded-full mr-2"
               />
               <span>{detailJobs?.tenNguoiTao} |</span>
               <div className="star text-warning ml-2">
@@ -57,7 +67,7 @@ export default function DetailJob() {
             <img
               src={detailJobs?.congViec?.hinhAnh}
               alt=""
-              className="mt-3 w-full profile-img"
+              className="mt-3 w-full"
             />
           </div>
           <div className="right col-4 mt-3">
@@ -92,24 +102,20 @@ export default function DetailJob() {
                   <div className="flex">
                     <img
                       src={
-                        userLogin.user.avatar
-                          ? userLogin.user.avatar
-                          : "https://picsum.photos/50/50"
+                        detailJobs?.avatar
+                          ? detailJobs?.avatar
+                          : "https://fastly.picsum.photos/id/719/200/300.jpg?hmac=ROd_JjwPBNsmDhuN2yXu9bdtg0T4Nyl1iYA0WDXYpxM"
                       }
                       alt="..."
-                      className="rounded-full mr-3 "
+                      width={80}
+                      height={50}
+                      className="rounded-full mr-3"
+                      style={{ height: "80px" }}
                     />
                     <div>
-                      <span>{userLogin.user.name}</span>
-                      <div>
-                        {userLogin?.user?.skill.map((item, index) => {
-                          return (
-                            <span key={index} className="mr-2">
-                              {item}
-                            </span>
-                          );
-                        })}
-                      </div>
+                      <span>{detailJobs?.tenNguoiTao}</span>
+                      <div>{detailJobs?.tenChiTietLoai}</div>
+
                       <div className="star text-warning">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -129,27 +135,76 @@ export default function DetailJob() {
 
             <div className="FAQ mt-5">
               <h4>FAQ</h4>
-              <ul className="mt-4">
-                <span className="flex justify-between items-center">
-                  Why choose Softriver?
-                  <i class="fa-solid fa-chevron-down"></i>
-                </span>
-                <hr />
-                <span className="flex justify-between items-center">
-                  What Package should I choose?
-                  <i class="fa-solid fa-chevron-down"></i>
-                </span>
-                <hr />
-                <span className="flex justify-between items-center">
-                  What is your Design Process?
-                  <i class="fa-solid fa-chevron-down"></i>
-                </span>
-                <hr />
-                <span className="flex justify-between items-center">
-                  What does the Social Media Kit and Stationery Designs include?
-                  <i class="fa-solid fa-chevron-down"></i>
-                </span>
-                <hr />
+              <ul className="mt-4 faq-dropdown">
+                <li className={`dropdown-item ${isOpen ? "expanded" : ""}`}>
+                  <div className="dropdown-header" onClick={toggleDropdown}>
+                    <span className="flex justify-between items-center">
+                      Why choose Softriver?
+                      <i
+                        className={`fa-solid fa-chevron-${
+                          isOpen ? "up" : "down"
+                        }`}
+                      ></i>
+                    </span>
+                  </div>
+                  <div className="dropdown-content">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </div>
+                </li>
+                <li className={`dropdown-item ${isOpen ? "expanded" : ""}`}>
+                  <div className="dropdown-header" onClick={toggleDropdown}>
+                    <span className="flex justify-between items-center">
+                      What Package should I choose?
+                      <i
+                        className={`fa-solid fa-chevron-${
+                          isOpen ? "up" : "down"
+                        }`}
+                      ></i>
+                    </span>
+                  </div>
+                  <div className="dropdown-content">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </div>
+                </li>
+                <li className={`dropdown-item ${isOpen ? "expanded" : ""}`}>
+                  <div className="dropdown-header" onClick={toggleDropdown}>
+                    <span className="flex justify-between items-center">
+                      What is your Design Process?
+                      <i
+                        className={`fa-solid fa-chevron-${
+                          isOpen ? "up" : "down"
+                        }`}
+                      ></i>
+                    </span>
+                  </div>
+                  <div className="dropdown-content">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </div>
+                </li>
+                <li className={`dropdown-item ${isOpen ? "expanded" : ""}`}>
+                  <div className="dropdown-header" onClick={toggleDropdown}>
+                    <span className="flex justify-between items-center">
+                      What does the Social Media Kit and Stationery Designs
+                      include?
+                      <i
+                        className={`fa-solid fa-chevron-${
+                          isOpen ? "up" : "down"
+                        }`}
+                      ></i>
+                    </span>
+                  </div>
+                  <div className="dropdown-content">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </div>
+                </li>
               </ul>
             </div>
 
@@ -260,10 +315,10 @@ export default function DetailJob() {
                         src={
                           userLogin?.user?.avatar
                             ? userLogin?.user?.avatar
-                            : "https://picsum.photos/35/35"
+                            : "https://fastly.picsum.photos/id/719/200/300.jpg?hmac=ROd_JjwPBNsmDhuN2yXu9bdtg0T4Nyl1iYA0WDXYpxM"
                         }
                         alt="..."
-                        className="rounded mr-2 "
+                        className="rounded mr-2"
                       />
                       <span>{userLogin?.user?.name}</span>
                       <i class="fa-solid fa-star text-warning ml-2"> 5</i>
@@ -277,13 +332,7 @@ export default function DetailJob() {
                     </div>
                   </div>
                   <div className="commet-bottom mt-5 flex">
-                    <div>
-                      <img
-                        src="https://picsum.photos/35/35"
-                        alt="..."
-                        className="rounded mr-2"
-                      />
-                    </div>
+                    <div></div>
                     <Form className="w-full">
                       <Form.Item name="content" className="mb-2 ">
                         <Input.TextArea />
