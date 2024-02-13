@@ -16,10 +16,33 @@ export default function DetailJob() {
   const { detailJobs } = useSelector((state) => state.CongViecReducers);
   const dispatch = useDispatch();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+  const [isOpen4, setIsOpen4] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const toggleDropdown1 = () => {
+    setTimeout(() => {
+      setIsOpen1(!isOpen1);
+    }, 300); // Chậm lại toggle 1 giây
+  };
+
+  const toggleDropdown2 = () => {
+    setTimeout(() => {
+      setIsOpen2(!isOpen2);
+    }, 300); // Chậm lại toggle 1 giây
+  };
+
+  const toggleDropdown3 = () => {
+    setTimeout(() => {
+      setIsOpen3(!isOpen3);
+    }, 300); // Chậm lại toggle 1 giây
+  };
+
+  const toggleDropdown4 = () => {
+    setTimeout(() => {
+      setIsOpen4(!isOpen4);
+    }, 300); // Chậm lại toggle 1 giây
   };
 
   useEffect(() => {
@@ -136,72 +159,70 @@ export default function DetailJob() {
             <div className="FAQ mt-5">
               <h4>FAQ</h4>
               <ul className="mt-4 faq-dropdown">
-                <li className={`dropdown-item ${isOpen ? "expanded" : ""}`}>
-                  <div className="dropdown-header" onClick={toggleDropdown}>
-                    <span className="flex justify-between items-center">
+                <li className={`dropdown-item ${isOpen1 ? "expanded" : ""}`}>
+                  <div className="dropdown-header" onClick={toggleDropdown1}>
+                    <span className="flex justify-between items-center text-muted h4">
                       Why choose Softriver?
-                      <i
-                        className={`fa-solid fa-chevron-${
-                          isOpen ? "up" : "down"
-                        }`}
-                      ></i>
                     </span>
+                    <i
+                      className={`fa-solid fa-chevron-up ${
+                        isOpen1 ? "rotate" : ""
+                      }`}
+                    ></i>
                   </div>
-                  <div className="dropdown-content">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
+
+                  <div className="dropdown-content text-muted h6">
+                    <p>Voluptates amet earum velit nobis aliquam</p>
                   </div>
                 </li>
-                <li className={`dropdown-item ${isOpen ? "expanded" : ""}`}>
-                  <div className="dropdown-header" onClick={toggleDropdown}>
-                    <span className="flex justify-between items-center">
+
+                <li className={`dropdown-item ${isOpen2 ? "expanded" : ""}`}>
+                  <div className="dropdown-header" onClick={toggleDropdown2}>
+                    <span className="flex justify-between items-center text-muted h4">
                       What Package should I choose?
-                      <i
-                        className={`fa-solid fa-chevron-${
-                          isOpen ? "up" : "down"
-                        }`}
-                      ></i>
                     </span>
+                    <i
+                      className={`fa-solid fa-chevron-up ${
+                        isOpen2 ? "rotate" : ""
+                      }`}
+                    ></i>
                   </div>
-                  <div className="dropdown-content">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
+                  <div className="dropdown-content text-muted h6">
+                    <p>Voluptates amet earum velit nobis aliquam</p>
                   </div>
                 </li>
-                <li className={`dropdown-item ${isOpen ? "expanded" : ""}`}>
-                  <div className="dropdown-header" onClick={toggleDropdown}>
-                    <span className="flex justify-between items-center">
+                <li className={`dropdown-item ${isOpen3 ? "expanded" : ""}`}>
+                  <div className="dropdown-header" onClick={toggleDropdown3}>
+                    <span className="flex justify-between items-center text-muted h4">
                       What is your Design Process?
-                      <i
-                        className={`fa-solid fa-chevron-${
-                          isOpen ? "up" : "down"
-                        }`}
-                      ></i>
                     </span>
+                    <i
+                      className={`fa-solid fa-chevron-up ${
+                        isOpen3 ? "rotate" : ""
+                      }`}
+                    ></i>
                   </div>
-                  <div className="dropdown-content">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  <div className="dropdown-content text-muted h6">
+                    <p className="full-width">
+                      Voluptates amet earum velit nobis aliquam
                     </p>
                   </div>
                 </li>
-                <li className={`dropdown-item ${isOpen ? "expanded" : ""}`}>
-                  <div className="dropdown-header" onClick={toggleDropdown}>
-                    <span className="flex justify-between items-center">
+                <li className={`dropdown-item ${isOpen4 ? "expanded" : ""}`}>
+                  <div className="dropdown-header" onClick={toggleDropdown4}>
+                    <span className="flex justify-between items-center text-muted h4">
                       What does the Social Media Kit and Stationery Designs
                       include?
-                      <i
-                        className={`fa-solid fa-chevron-${
-                          isOpen ? "up" : "down"
-                        }`}
-                      ></i>
                     </span>
+                    <i
+                      className={`fa-solid fa-chevron-up ${
+                        isOpen4 ? "rotate" : ""
+                      }`}
+                    ></i>
                   </div>
-                  <div className="dropdown-content">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  <div className="dropdown-content text-muted text-muted h6">
+                    <p className="full-height">
+                      Voluptates amet earum velit nobis aliquam
                     </p>
                   </div>
                 </li>
@@ -223,10 +244,15 @@ export default function DetailJob() {
                 </div>
                 <div className="right">
                   <span>
-                    Sort by{" "}
-                    <b>
-                      Most relevant <i class="fa-solid fa-chevron-down"></i>
-                    </b>
+                    Sort by
+                    <span className="options">
+                      <select>
+                        <option value="mostRecent">Most recent</option>
+                        <option value="mostRelevant" selected>
+                          Most relevant
+                        </option>
+                      </select>
+                    </span>
                   </span>
                 </div>
               </div>
