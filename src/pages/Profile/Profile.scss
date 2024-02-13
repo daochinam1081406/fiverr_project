@@ -1,7 +1,7 @@
 .Profile {
   .container {
     .row {
-      // Bạn có thể đặt quy tắc CSS ở đây
+  
     }
   }
 
@@ -47,4 +47,17 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+.emty-space{
+  color: white;
+}
+.fa-pencil {
+  &.text-gray-500 {
+    color: #666; // Màu mặc định
+    transition: color 0.3s ease; // Hiệu ứng chuyển đổi màu
+  }
+
+  &:hover {
+    color: #000; // Màu khi hover lên
+  }
 }

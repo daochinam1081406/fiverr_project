@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { format } from "date-fns";
 import {
   getUserIdAction,
   postAvatarAction,
@@ -66,7 +67,7 @@ export default function Profile() {
 
                 <div className="edit items-center text-center">
                   <i
-                    class="fa-solid fa-pencil"
+                    class="fa-solid fa-pencil text-gray-500"
                     onClick={() => setshowModal(true)}
                     role="button"
                   ></i>
@@ -81,7 +82,7 @@ export default function Profile() {
                       <span className="text-gray-500">From</span>
                     </div>
                     <div>
-                      <b className="text-gray-500">VietNam</b>
+                      <b className="text-gray-500">Hochiminh</b>
                     </div>
                   </div>
                   <div className="bottom flex justify-between items-center">
@@ -90,7 +91,7 @@ export default function Profile() {
                       <span className="text-gray-500">Member since</span>
                     </div>
                     <div>
-                      <b className="text-gray-500">November 5</b>
+                      <b className="text-gray-500">Jun 26</b>
                     </div>
                   </div>
                 </div>
@@ -98,58 +99,108 @@ export default function Profile() {
             </div>
             <div className="card card-bottom mt-3 ">
               <div className="card-body">
-                <div className="des flex justify-between p-2">
-                  <h5>Description</h5>
-                  <b>Edit</b>
+                <div className="des p-2">
+                  <div className="flex justify-between">
+                    <h5>Description</h5>
+                    <i
+                      class="fa-solid fa-pencil text-gray-500"
+                      onClick={() => setshowModal(true)}
+                      role="button"
+                    ></i>
+                  </div>
+                  <div className="flex justify-start">
+                    <div className="text-gray-500">Name: </div>
+                    <div className="emty-space">----------------</div>
+                    <div className="text-gray-500 ">{userId.name}</div>
+                  </div>
+                  <div className="flex justify-start">
+                    <div className="text-gray-500">Phone: </div>
+
+                    <div className="emty-space">---------------</div>
+                    <div className="text-gray-500">{userId.phone}</div>
+                  </div>
+                  <div className="flex justify-start">
+                    <div className="text-gray-500">Birthday:</div>
+                    <div className="emty-space">-------------</div>
+                    <div className="text-gray-500 ">
+                      {(() => {
+                        const originalDateString = userId.birthday;
+                        const date = new Date(originalDateString);
+                        const year = date.getFullYear();
+                        const month = String(date.getMonth() + 1).padStart(
+                          2,
+                          "0"
+                        );
+                        const day = String(date.getDate()).padStart(2, "0");
+                        return `${year}-${month}-${day}`;
+                      })()}
+                    </div>
+                  </div>
                 </div>
                 <hr />
                 <div className="des flex justify-between p-2">
                   <h5>Leaguage</h5>
-                  <b>Edit</b>
+                  <i
+                    class="fa-solid fa-pencil text-gray-500"
+                    onClick={() => setshowModal(true)}
+                    role="button"
+                  ></i>
                 </div>
+                <div className="flex justify-start">
+                  <div className="text-gray-500">English - </div>
+                  <div className="emty-space">-</div>
+                  <div className="text-gray-500 ">Basic</div>
+                </div>
+                <div className="flex justify-start">
+                  <div className="text-gray-500">Vietnamese (Tiếng Việt) -</div>
+
+                  <div className="emty-space">-</div>
+                  <div className="text-gray-500"> Native/Bilingual</div>
+                </div>
+
                 <hr />
                 <div className="link-account p-2">
                   <h5>Link Accounts</h5>
                   <ul>
                     <li className="mt-3">
+                      <i class="fa-brands fa-facebook mr-2"></i>
                       <Link>
-                        <i className="fa-solid fa-plus mr-2"></i>
                         <span>Facebook</span>
                       </Link>
                     </li>
                     <li className="mt-3">
+                      <i className="fa-brands fa-google-plus mr-2"></i>
                       <Link>
-                        <i className="fa-brands fa-google-plus mr-2"></i>
                         <span>Google</span>
                       </Link>
                     </li>
                     <li className="mt-3">
+                      <i class="fa-brands fa-dribbble mr-2"></i>
                       <Link>
-                        <i className="fa-solid fa-plus mr-2"></i>
                         <span>Dribbble</span>
                       </Link>
                     </li>
                     <li className="mt-3">
+                      <i class="fa-brands fa-stack-overflow mr-2"></i>
                       <Link>
-                        <i className="fa-solid fa-plus mr-2"></i>
                         <span>Stack Overflow</span>
                       </Link>
                     </li>
                     <li className="mt-3">
+                      <i class="fa-brands fa-github mr-2"></i>
                       <Link>
-                        <i className="fa-solid fa-plus mr-2"></i>
                         <span>GitHub</span>
                       </Link>
                     </li>
                     <li className="mt-3">
+                      <i class="fa-brands fa-vimeo mr-2"></i>
                       <Link>
-                        <i className="fa-solid fa-plus mr-2"></i>
                         <span>Vimeo</span>
                       </Link>
                     </li>
                     <li className="mt-3">
+                      <i class="fa-brands fa-twitter mr-2"></i>
                       <Link>
-                        <i className="fa-solid fa-plus mr-2"></i>
                         <span>Twitter</span>
                       </Link>
                     </li>
@@ -159,13 +210,11 @@ export default function Profile() {
                 <div className="skill p-2">
                   <div className="flex justify-between">
                     <h5>Skill</h5>
-                    <b
-                      className="text-blue-500"
+                    <i
+                      class="fa-solid fa-pencil text-gray-500"
                       onClick={() => setshowModal(true)}
                       role="button"
-                    >
-                      Edit
-                    </b>
+                    ></i>
                   </div>
                   <div>
                     {userId?.skill?.map((item, index) => {
@@ -181,20 +230,23 @@ export default function Profile() {
                 <div className="education p-2">
                   <div className="flex justify-between">
                     <h5>Education</h5>
-                    <b>Edit</b>
+                    <i
+                      class="fa-solid fa-pencil text-gray-500"
+                      onClick={() => setshowModal(true)}
+                      role="button"
+                    ></i>
                   </div>
+                  <div>Cybersoft</div>
                 </div>
                 <hr />
                 <div className="certification p-2">
                   <div className="flex justify-between">
                     <h5>Certification</h5>
-                    <b
-                      className="text-blue-500"
+                    <i
+                      class="fa-solid fa-pencil text-gray-500"
                       onClick={() => setshowModal(true)}
                       role="button"
-                    >
-                      Edit
-                    </b>
+                    ></i>
                   </div>
                   <div>
                     {userId?.certification?.map((item, index) => {
@@ -240,14 +292,14 @@ export default function Profile() {
                 }}
               ></i>
             </div>
-            <div className="card middle mt-3">
+            {/* <div className="card middle mt-3">
               <div className="card-body flex justify-between">
                 <span className="text-gray-500 text-xl">
                   It seem that you don't have any active Gigs. Get selling!
                 </span>
                 <button className="btn btn-success">Create a New Gig</button>
               </div>
-            </div>
+            </div> */}
             <div className="card bottom mt-3">
               {dsCongViecDaThue?.map((item, index) => {
                 return (
@@ -273,13 +325,11 @@ export default function Profile() {
                         <button
                           className="btn btn-danger flex-end"
                           onClick={() => {
-                            //Gọi action xoá
                             if (
                               window.confirm(
                                 "Bạn có chắc muốn xoá công việc " + item.id
                               )
                             ) {
-                              //Gọi action
                               dispatch(XoaCongViecAction(item.id));
                             }
                           }}

@@ -237,7 +237,7 @@ export default function Register() {
                     <Select
                       name="gender"
                       width="200px"
-                      placeholder="Chọn giới tính"
+                      placeholder="Gender"
                       value={formik.values.gender}
                       onChange={handleChangeGender}
                     >
