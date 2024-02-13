@@ -2,22 +2,7 @@
   .container {
     .row {
       .left {
-        // .review {
-        //   .bottom {
-        //     .left {
-        //       .rating {
-        //         .ant-progress {
-        //           .ant-progress-bg {
-        //             background-color: #ffc107;
-        //           }
-        //           .ant-progress-text {
-        //             display: none;
-        //           }
-        //         }
-        //       }
-        //     }
-        //   }
-        // }
+       
       }
       .right {
         .tab {
@@ -173,13 +158,7 @@
 @media (max-width: 400px) {
   .DetailJob {
     .row {
-      // flex-direction: column;
-      // .left {
-      //   width: 100%;
-      // }
-      // .right {
-      //   width: 100%;
-      // }
+     
       .bottom {
         width: 100%;
         .review {
@@ -211,4 +190,12 @@
       }
     }
   }
+}
+.profile-img {
+  width: 80px; 
+  height: 80px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }

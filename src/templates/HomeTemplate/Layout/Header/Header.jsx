@@ -48,7 +48,6 @@ export default function Header(props) {
             <li className="flex">
               <Link
                 rel="noopener noreferrer"
-                to="/404"
                 className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500 active::text-blue-700"
               >
                 Fiverr Business
@@ -57,7 +56,6 @@ export default function Header(props) {
             <li className="flex">
               <Link
                 rel="noopener noreferrer"
-                to="/404"
                 className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500"
               >
                 Explore
@@ -66,7 +64,6 @@ export default function Header(props) {
             <li className="flex">
               <Link
                 rel="noopener noreferrer"
-                to="/404"
                 className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500"
               >
                 English
@@ -75,7 +72,6 @@ export default function Header(props) {
             <li className="flex">
               <Link
                 rel="noopener noreferrer"
-                to="/404"
                 className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500"
               >
                 US$ USD
@@ -84,7 +80,6 @@ export default function Header(props) {
             <li className="flex">
               <Link
                 rel="noopener noreferrer"
-                to="/404"
                 className="nav-link flex items-center p-1 -mb-1 dark:border-transparent text-gray-500 hover:text-green-500"
               >
                 Become a Seller
