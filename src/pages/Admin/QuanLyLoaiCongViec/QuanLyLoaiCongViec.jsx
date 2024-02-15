@@ -64,25 +64,28 @@ export default function QuanLyLoaiCongViec() {
       render: (text, listTypeJob) => {
         return (
           <Fragment key={text}>
-            {/* <span key={1} className=" mr-2  text-2xl">
+            <span key={1} className=" mr-2  text-2xl">
               <EditOutlined
                 style={{ color: "blue" }}
                 onClick={() => {
                   setshowModalEdit(true);
-                  localStorage.setItem("userAdmin", JSON.stringify(user));
+                  localStorage.setItem(
+                    "userAdmin",
+                    JSON.stringify(listTypeJob)
+                  );
                 }}
               />
-            </span> */}
-            {/* <span
+            </span>
+            <span
               style={{ cursor: "pointer" }}
               key={2}
               className="text-2xl"
               onClick={() => {
-                dispatch(deleteUserAction(user.id));
+                //dispatch(deleteUserAction(user.id));
               }}
             >
               <DeleteOutlined style={{ color: "red" }} />
-            </span> */}
+            </span>
           </Fragment>
         );
       },
