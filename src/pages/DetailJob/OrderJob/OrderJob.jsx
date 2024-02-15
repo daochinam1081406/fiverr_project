@@ -1,5 +1,5 @@
 import moment from "moment";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { ThongTinThueCongViec } from "../../../models/ThongTinThueCongViec";
@@ -7,7 +7,22 @@ import { layCongViecChiTietAction } from "../../../redux/actions/CongViecActions
 import { ThueCongViecActions } from "../../../redux/actions/ThueCongViecActions";
 import { USER_LOGIN } from "../../../util/settings/config";
 import "./OrderJob.scss";
-export default function OrderJob(props) {
+export default function OrderJob(props, { currentTab }) {
+  useEffect(() => {
+    switch (currentTab) {
+      case "1":
+        console.log("Basic tab is selected");
+        break;
+      case "2":
+        console.log("Standard tab is selected");
+        break;
+      case "3":
+        console.log("Premium tab is selected");
+        break;
+      default:
+        break;
+    }
+  }, [currentTab]);
   const { item } = props;
 
   const { thueCongViec } = useSelector((state) => state.ThueCongViecReducers);
@@ -23,7 +38,7 @@ export default function OrderJob(props) {
   return (
     <div className="p-3">
       <div className="d-flex justify-content-between">
-        <h5>Stardard</h5>
+        <h5>{console.log(detailJobs)}Standard</h5>
         <p className="h5  text-black">{item.congViec?.giaTien}$</p>
       </div>
       <p className="disabled h6 my-4">{item.congViec?.tenCongViec}</p>
@@ -52,10 +67,6 @@ export default function OrderJob(props) {
           <>
             <button
               className="btn-lg btn btn-success btn-block my-4"
-              // onClick={handleOrder}
-              // onClick={() => {
-              //     alert('abc')
-              // }}
               onClick={() => {
                 const thongTinThueCongViec = new ThongTinThueCongViec();
 
@@ -64,7 +75,6 @@ export default function OrderJob(props) {
                 thongTinThueCongViec.ngayThue = moment().format("DD/MM/YYYY");
                 thongTinThueCongViec.hoanThanh = true;
                 dispatch(ThueCongViecActions(thongTinThueCongViec));
-                // navigate('/')
               }}
             >
               <span>Continue ({item?.congViec?.giaTien}$)</span>
@@ -75,14 +85,6 @@ export default function OrderJob(props) {
             </div>
           </>
         )}
-
-        {/* <button className="btn-lg btn btn-success btn-block my-4" onClick={() => navigate(`/login`)}>
-                    Continue ($1000)
-                </button>
-
-                <div role="button" className="h5 text-success text-center">
-                    Compare Package
-                </div> */}
       </div>
     </div>
   );

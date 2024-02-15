@@ -7,6 +7,7 @@
       .right {
         .tab {
           border: 1px solid #ccc;
+          border-radius: 5%;
           .ant-tabs {
             .ant-tabs-nav {
               .ant-tabs-nav-wrap {
@@ -250,4 +251,12 @@
 .rotate {
   transform: rotate(180deg);
   transition: transform 0.3s ease; /* Tạo hiệu ứng transition */
+}
+.equal-width-tabs .ant-tabs-nav {
+  display: flex;
+}
+
+.equal-width-tabs .ant-tabs-tab {
+  flex-grow: 1;
+  text-align: center;
 }

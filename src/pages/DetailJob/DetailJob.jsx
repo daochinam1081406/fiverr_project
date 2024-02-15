@@ -8,14 +8,16 @@ import OrderJob from "./OrderJob/OrderJob";
 import { useDispatch, useSelector } from "react-redux";
 import { layCongViecChiTietAction } from "../../redux/actions/CongViecActions";
 import { useParams } from "react-router-dom";
+import { layBinhLuanTheoCongViecAction } from "../../redux/actions/BinhLuanAction";
 
 export default function DetailJob() {
   const { userLogin } = useSelector((state) => state.AuthReducers);
-
+  const { binhLuans } = useSelector((state) => state.BinhLuanReducers);
   const { detailJob, jobId } = useParams();
   const { detailJobs } = useSelector((state) => state.CongViecReducers);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  const dispatch1 = useDispatch();
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
@@ -24,30 +26,32 @@ export default function DetailJob() {
   const toggleDropdown1 = () => {
     setTimeout(() => {
       setIsOpen1(!isOpen1);
-    }, 300); // Chậm lại toggle 1 giây
+    }, 300);
   };
 
   const toggleDropdown2 = () => {
     setTimeout(() => {
       setIsOpen2(!isOpen2);
-    }, 300); // Chậm lại toggle 1 giây
+    }, 300);
   };
 
   const toggleDropdown3 = () => {
     setTimeout(() => {
       setIsOpen3(!isOpen3);
-    }, 300); // Chậm lại toggle 1 giây
+    }, 300);
   };
 
   const toggleDropdown4 = () => {
     setTimeout(() => {
       setIsOpen4(!isOpen4);
-    }, 300); // Chậm lại toggle 1 giây
+    }, 300);
   };
-
   useEffect(() => {
-    window.scrollTo(0, 0);
+    console.log("useEffect is working!");
+    dispatch1(layBinhLuanTheoCongViecAction(jobId));
   }, []);
+  console.log("ddddfsfs" + binhLuans);
+
   useEffect(() => {
     dispatch(layCongViecChiTietAction(jobId));
   }, []);
@@ -57,14 +61,6 @@ export default function DetailJob() {
       <div className="container">
         <div className="row">
           <div className="left col-8">
-            <p>
-              {detailJobs?.tenLoaiCongViec}
-              {/* 123123 */}
-              <i class="fa-solid fa-chevron-right"></i>
-              {detailJobs?.tenNhomChiTietLoai}
-              <i class="fa-solid fa-chevron-right"></i>
-              {detailJobs?.tenChiTietLoai}
-            </p>
             <h2>{detailJobs?.congViec?.tenCongViec}</h2>
             <div className="user flex">
               <img
@@ -88,6 +84,7 @@ export default function DetailJob() {
               </div>
             </div>
             <img
+              style={{ borderRadius: 5 }}
               src={detailJobs?.congViec?.hinhAnh}
               alt=""
               className="mt-3 w-full"
@@ -95,15 +92,21 @@ export default function DetailJob() {
           </div>
           <div className="right col-4 mt-3">
             <div className="tab">
-              <Tabs size="large" defaultActiveKey="2" centered type="card">
-                <Tabs.TabPane disabled tab="Basic" key="1">
-                  <OrderJob />
-                </Tabs.TabPane>
-                <Tabs.TabPane tab="Stardard" key="2">
+              <Tabs
+                size="large"
+                defaultActiveKey="2"
+                centered
+                type="card"
+                className="equal-width-tabs"
+              >
+                <Tabs.TabPane tab="Basic" key="1">
                   <OrderJob item={detailJobs} />
                 </Tabs.TabPane>
-                <Tabs.TabPane disabled tab="Premium" key="3">
-                  <OrderJob />
+                <Tabs.TabPane tab="Standard" key="2">
+                  <OrderJob item={detailJobs} />
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="Premium" key="3">
+                  <OrderJob item={detailJobs} />
                 </Tabs.TabPane>
               </Tabs>
             </div>
@@ -344,7 +347,7 @@ export default function DetailJob() {
                             : "https://fastly.picsum.photos/id/719/200/300.jpg?hmac=ROd_JjwPBNsmDhuN2yXu9bdtg0T4Nyl1iYA0WDXYpxM"
                         }
                         alt="..."
-                        className="rounded mr-2"
+                        className="rounded-full mr-2"
                       />
                       <span>{userLogin?.user?.name}</span>
                       <i class="fa-solid fa-star text-warning ml-2"> 5</i>
