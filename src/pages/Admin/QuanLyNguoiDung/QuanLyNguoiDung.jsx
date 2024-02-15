@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import "./QuanLyNguoiDung.scss";
 import {
-  AudioOutlined,
   EditOutlined,
   SearchOutlined,
   DeleteOutlined,
-  CalendarOutlined,
 } from "@ant-design/icons";
-// import Search from 'antd/lib/input/Search';
+
 import { Button, Table } from "antd";
 import { Input, Space } from "antd";
 import { Modal } from "react-bootstrap";
@@ -22,35 +20,24 @@ import {
 } from "../../../redux/actions/NguoiDungActions";
 import FormAddUser from "./FormAddUser";
 import FormEdit from "./FormEdit/FormEdit";
-import { nguoiDungServices } from "../../../services/nguoiDungServices";
 const { Search } = Input;
 
 export default function QuanLyNguoiDung() {
   const { user } = useSelector((state) => state.NguoiDungReducers);
   const dispatch = useDispatch();
-  // const { id } = useParams()
+
   useEffect(() => {
     dispatch(getUserAction());
   }, []);
   const { Search } = Input;
-
   const [showModal, setshowModal] = useState(false);
   const [showModalEdit, setshowModalEdit] = useState(false);
-  // const [valueSearch, setValueSearch] = useState([]);
-
   const [valueSearch, setValueSearch] = useState("");
-
   const onSearch = (value) => {};
-
-  // danh sách user
   const data = user;
-
-  // search user
-  // const data = valueSearch
-
   const columns = [
     {
-      title: "Tài khoản",
+      title: "Username",
       dataIndex: "name",
       key: "name",
 
@@ -68,7 +55,6 @@ export default function QuanLyNguoiDung() {
         return <Fragment>{user.email}</Fragment>;
       },
       width: "15%",
-      // sorter: (a, b) => a.age - b.age,
     },
     {
       title: "Phone",
@@ -78,7 +64,6 @@ export default function QuanLyNguoiDung() {
         return <Fragment>{user.phone}</Fragment>;
       },
       width: "15%",
-      // sorter: (a, b) => a.age - b.age,
     },
     {
       title: "Role",
@@ -90,7 +75,7 @@ export default function QuanLyNguoiDung() {
       width: "15%",
     },
     {
-      title: "Hành động",
+      title: "Action",
       dataIndex: "action",
       key: "action",
       render: (text, user) => {
@@ -128,13 +113,12 @@ export default function QuanLyNguoiDung() {
     <div>
       <h1></h1>
       <Button className="mb-5" onClick={() => setshowModal(true)}>
-        Add new user
+        Create user
       </Button>
       <Search
         className="mb-5"
-        placeholder="Nhập tên tài khoản cần tìm ..."
-        enterButton={<SearchOutlined />}
-        // enterButton="Search"
+        placeholder="Input username ..."
+        enterButton={<SearchOutlined style={{ color: "darkgreen" }} />}
         allowClear
         value={valueSearch}
         onChange={(e) => setValueSearch(e.target.value)}
@@ -152,6 +136,7 @@ export default function QuanLyNguoiDung() {
           )
           .sort((a, b) => a.id - b.id)}
         rowKey={"name"}
+        scroll={{ x: true, y: 400 }}
       />
 
       <Modal show={showModal} onHide={() => setshowModal(false)}>

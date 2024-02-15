@@ -4,7 +4,6 @@ import { InboxOutlined, UploadOutlined } from "@ant-design/icons";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { addJobAction } from "../../../../redux/actions/CongViecActions";
-import { congViecServices } from "../../../../services/congViecServices";
 
 const formItemLayout = {
   labelCol: { xs: { span: 10 }, sm: { span: 9 } },
@@ -46,8 +45,12 @@ export default function FormAddJob({ setshowModal }) {
   const handleChangeRate = (saoCongViec) => {
     formik.setFieldValue("saoCongViec", saoCongViec);
   };
-  const handleChangeImg = (hinhAnh) => {
-    formik.setFieldValue("hinhAnh", hinhAnh);
+
+  const handleChangeImg = (info) => {
+    const { fileList } = info;
+    if (fileList.length > 0) {
+      formik.setFieldValue("hinhAnh", fileList[0]);
+    }
   };
 
   return (
@@ -59,16 +62,7 @@ export default function FormAddJob({ setshowModal }) {
           onChange={formik.handleChange}
         />
       </Form.Item>
-      {/* <Form.Item
-                name="hinhAnh"
-                label="Hình ảnh"
-                valuePropName="fileList"
-                getValueFromEvent={normFile}
-            >
-                <Upload name="hinhAnh" listType="picture" value={formik.values.hinhAnh} onChange={handleChangeImg}>
-                    <Button icon={<UploadOutlined />}>Click to upload</Button>
-                </Upload>
-            </Form.Item> */}
+
       <Form.Item label="Mô tả ngắn">
         <TextArea
           rows={4}
@@ -102,19 +96,14 @@ export default function FormAddJob({ setshowModal }) {
       </Form.Item>
       <Form.Item className="text-right">
         <button
+          type="button"
           onClick={() => setshowModal(false)}
           className="btn btn-primary  mr-3"
         >
-          Hủy
+          Cancel
         </button>
 
-        <button
-          type="submit"
-          className="btn btn-success"
-          onClick={() => {
-            // dispatch(postUserAction())
-          }}
-        >
+        <button type="submit" className="btn btn-success" onClick={() => {}}>
           Thêm
         </button>
       </Form.Item>

@@ -139,6 +139,7 @@ export default function AdminTemplate() {
           <Footer
             style={{
               textAlign: "center",
+              height: 5,
             }}
           >
             Copyright@ 2024 D.

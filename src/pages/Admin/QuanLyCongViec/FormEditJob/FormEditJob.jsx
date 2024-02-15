@@ -3,13 +3,7 @@ import { DatePicker, Form, Input, Select, Upload, Button } from "antd";
 import { InboxOutlined, UploadOutlined } from "@ant-design/icons";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addJobAction,
-  editJobAction,
-  layDSCongViecAction,
-} from "../../../../redux/actions/CongViecActions";
-import { congViecServices } from "../../../../services/congViecServices";
-import { useParams } from "react-router-dom";
+import { editJobAction } from "../../../../redux/actions/CongViecActions";
 
 const formItemLayout = {
   labelCol: { xs: { span: 10 }, sm: { span: 9 } },
@@ -51,31 +45,18 @@ export default function FormEditJob({ setshowModalEdit }) {
   const handleChangeRate = (saoCongViec) => {
     formik.setFieldValue("saoCongViec", saoCongViec);
   };
-  // const handleChangeImg = (hinhAnh) => {
-  //     formik.setFieldValue('hinhAnh', hinhAnh);
-
-  // }
 
   return (
     <Form {...formItemLayout} onFinish={formik.handleSubmit}>
-      <Form.Item label="Tên công việc">
+      <Form.Item label="Job name">
         <Input
           name="tenCongViec"
           value={formik.values.tenCongViec}
           onChange={formik.handleChange}
         />
       </Form.Item>
-      {/* <Form.Item
-                name="hinhAnh"
-                label="Hình ảnh"
-                // valuePropName="fileList"
-                getValueFromEvent={normFile}
-            >
-                <Upload name="hinhAnh" listType="picture" value={formik.values.hinhAnh} onChange={handleChangeImg}>
-                    <Button icon={<UploadOutlined />}>Click to upload</Button>
-                </Upload>
-            </Form.Item> */}
-      <Form.Item label="Mô tả ngắn">
+
+      <Form.Item label="Description">
         <TextArea
           rows={4}
           name="moTaNgan"
@@ -83,7 +64,7 @@ export default function FormEditJob({ setshowModalEdit }) {
           onChange={formik.handleChange}
         />
       </Form.Item>
-      <Form.Item label="Giá tiền">
+      <Form.Item label="Price">
         <Input
           style={{ width: "30%" }}
           name="giaTien"
@@ -91,10 +72,10 @@ export default function FormEditJob({ setshowModalEdit }) {
           onChange={formik.handleChange}
         />
       </Form.Item>
-      <Form.Item label="Số sao">
+      <Form.Item label="Rating">
         <Select
           name="saoCongViec"
-          placeholder="Chọn số sao"
+          placeholder="Input rating"
           style={{ width: "30%" }}
           value={formik.values.saoCongViec}
           onChange={handleChangeRate}
@@ -112,17 +93,11 @@ export default function FormEditJob({ setshowModalEdit }) {
           onClick={() => setshowModalEdit(false)}
           className="btn btn-primary  mr-3"
         >
-          Hủy
+          Cancel
         </button>
 
-        <button
-          type="submit"
-          className="btn btn-success"
-          onClick={() => {
-            // dispatch(postUserAction())
-          }}
-        >
-          Cập nhật
+        <button type="submit" className="btn btn-success" onClick={() => {}}>
+          Update
         </button>
       </Form.Item>
     </Form>

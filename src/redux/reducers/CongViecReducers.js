@@ -8,6 +8,7 @@ import {
   LAY_DS_CONG_VIEC,
   LAY_DS_CONG_VIEC_THEO_TEN,
   SET_MENU_CONG_VIEC,
+  POST_IMAGE,
 } from "../types/CongViecTypes";
 
 const stateDefault = {
@@ -36,9 +37,13 @@ export const CongViecReducers = (state = stateDefault, action) => {
 
     case SET_MENU_CONG_VIEC: {
       state.menuJob = action.menuJob;
-      // state.menuArr = state.menuJob
       return { ...state };
     }
+    case POST_IMAGE:
+      return {
+        ...state,
+        formFile: action.formFile,
+      };
 
     case LAY_DS_CONG_VIEC_THEO_TEN: {
       state.resultSearchJobByName = action.resultSearchJobByName;
@@ -47,7 +52,6 @@ export const CongViecReducers = (state = stateDefault, action) => {
 
     case LAY_CHI_TIET_LOAI_CONG_VIEC: {
       state.menuItem = action.menuItem;
-      // state.menuDetail = action.menuDetail
       return { ...state };
     }
 
@@ -61,7 +65,6 @@ export const CongViecReducers = (state = stateDefault, action) => {
       return { ...state };
     }
 
-    // Admin
     case ADD_CONG_VIEC: {
       state.addJob = action.addJob;
       return { ...state };

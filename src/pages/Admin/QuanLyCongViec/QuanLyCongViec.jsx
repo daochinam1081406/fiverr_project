@@ -1,49 +1,46 @@
 import React, { useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import "../QuanLyNguoiDung/QuanLyNguoiDung.scss";
 import {
-  AudioOutlined,
   EditOutlined,
   SearchOutlined,
   DeleteOutlined,
-  CalendarOutlined,
 } from "@ant-design/icons";
-// import Search from 'antd/lib/input/Search';
 import { Button, Table } from "antd";
 import { Input, Space } from "antd";
 import { Modal } from "react-bootstrap";
-
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { nguoiDungServices } from "../../../services/nguoiDungServices";
 import {
   deleteJobAction,
-  editJobAction,
   layDSCongViecAction,
+  postImageJobAction,
 } from "../../../redux/actions/CongViecActions";
 import FormAddJob from "./FormAddJob/FormAddJob";
-import FormEditob from "./FormEditJob/FormEditJob";
 import FormEditJob from "./FormEditJob/FormEditJob";
 const { Search } = Input;
 
 export default function QuanLyCongViec() {
   const { listJob } = useSelector((state) => state.CongViecReducers);
   const dispatch = useDispatch();
-  // const { id } = useParams()
+  const handleFileChange = (event, id) => {
+    console.log("File is selected");
+    const file = event.target.files[0];
+    if (file) {
+      console.log("huhu" + file + id);
+      dispatch(postImageJobAction(file, id));
+    } else {
+      console.error("No file selected!");
+    }
+  };
   useEffect(() => {
     dispatch(layDSCongViecAction());
   }, []);
   const { Search } = Input;
-
   const [showModal, setshowModal] = useState(false);
   const [showModalEdit, setshowModalEdit] = useState(false);
-  // const [valueSearch, setValueSearch] = useState([]);
-
   const [valueSearch, setValueSearch] = useState("");
-
   const onSearch = (value) => {};
-
-  // danh sách user
   const data = listJob
     .filter(
       (listJob) =>
@@ -51,13 +48,9 @@ export default function QuanLyCongViec() {
         listJob.moTaNgan.includes(valueSearch.toLowerCase().trim())
     )
     .sort((a, b) => a.id - b.id);
-
-  // search user
-  // const data = valueSearch
-
   const columns = [
     {
-      title: "Tên công việc",
+      title: "Job name",
       dataIndex: "tenCongViec",
       key: "tenCongViec",
       render: (text, listJob) => {
@@ -66,7 +59,7 @@ export default function QuanLyCongViec() {
       width: "15%",
     },
     {
-      title: "Hình ảnh",
+      title: "Image",
       dataIndex: "hinhAnh",
       key: "hinhAnh",
       render: (text, listJob) => {
@@ -78,13 +71,23 @@ export default function QuanLyCongViec() {
               width="100px"
               height="50px"
             />
+
+            <input
+              id="uploadAvatar"
+              type="file"
+              name="uploadAvatar"
+              accept="image/png, image/jpeg, image/jpg"
+              onChange={(event) => {
+                handleFileChange(event, listJob.id);
+              }}
+            />
           </Fragment>
         );
       },
       width: "8%",
     },
     {
-      title: "Mô tả ngắn",
+      title: "Description",
       dataIndex: "moTaNgan",
       key: "moTaNgan",
       render: (text, listJob) => {
@@ -93,7 +96,7 @@ export default function QuanLyCongViec() {
       width: "30%",
     },
     {
-      title: "Giá tiền",
+      title: "Price",
       dataIndex: "giaTien",
       key: "giaTien",
       render: (text, listJob) => {
@@ -102,7 +105,7 @@ export default function QuanLyCongViec() {
       width: "6%",
     },
     {
-      title: "Số sao",
+      title: "Rating",
       dataIndex: "saoCongViec",
       key: "saoCongViec",
       render: (text, listJob) => {
@@ -112,7 +115,7 @@ export default function QuanLyCongViec() {
     },
 
     {
-      title: "Hành động",
+      title: "Action",
       dataIndex: "action",
       key: "action",
       render: (text, listJob) => {
@@ -150,13 +153,12 @@ export default function QuanLyCongViec() {
     <div>
       <h5></h5>
       <Button className="mb-5" onClick={() => setshowModal(true)}>
-        Add new job
+        Create job
       </Button>
       <Search
         className="mb-5"
-        placeholder="Nhập tên công việc cần tìm ..."
-        enterButton={<SearchOutlined />}
-        // enterButton="Search"
+        placeholder="Input job ..."
+        enterButton={<SearchOutlined style={{ color: "darkgreen" }} />}
         allowClear
         value={valueSearch}
         onChange={(e) => setValueSearch(e.target.value)}
@@ -164,7 +166,12 @@ export default function QuanLyCongViec() {
         onSearch={onSearch}
       />
 
-      <Table columns={columns} dataSource={data} rowKey={"tenCongViec"} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowKey={"tenCongViec"}
+        scroll={{ x: true, y: 400 }}
+      />
 
       <Modal show={showModal} onHide={() => setshowModal(false)}>
         <Modal.Header style={{ justifyContent: "center" }}>
@@ -174,7 +181,6 @@ export default function QuanLyCongViec() {
         </Modal.Header>
         <Modal.Body>
           <FormAddJob setshowModal={setshowModal} />
-          {/* <FormAddUser setshowModal={setshowModal} /> */}
         </Modal.Body>
       </Modal>
 

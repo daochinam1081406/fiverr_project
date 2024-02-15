@@ -1,11 +1,18 @@
 .ant-layout {
   .ant-layout-sider {
     background: #515653;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease; 
+    &:hover{
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.12);
+    }
+   
   }
   .ant-menu.ant-menu-dark,
   .ant-menu-dark .ant-menu-sub,
   .ant-menu.ant-menu-dark .ant-menu-sub {
     background: #515453;
+    border-radius: 5%;
   }
   .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal)
     .ant-menu-item-selected {
@@ -13,12 +20,22 @@
   }
   .ant-layout-header {
     background: #03361e;
+  
+    margin-left: 0.05rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease; 
+    &:hover{
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.12);
+    }
     button {
       border: none;
       color: #fff;
       background-color: transparent;
       &:hover {
         background-color: transparent;
+        border-color: #03361e;
+        border-radius: 10%;
       }
     }
   }

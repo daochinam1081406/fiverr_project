@@ -1,0 +1,31 @@
+Button {
+    border: none;
+    color: #fff;
+    background-color: transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease; 
+    border-radius: 7%;
+    &:hover {
+      background-color: transparent;
+      border-color: #03361e;
+
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.12);
+    }}
+
+    Table{
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        transition: box-shadow 0.3s ease; 
+        &:hover {
+            border-color: #03361e;
+      
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.12);
+          }
+    }
+    .ant-btn-primary {
+        background-color: transparent !important; 
+        
+      }
+
+        
+    
+

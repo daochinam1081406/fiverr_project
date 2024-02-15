@@ -9,10 +9,10 @@ import {
   LAY_DS_CONG_VIEC,
   LAY_DS_CONG_VIEC_THEO_TEN,
   SET_MENU_CONG_VIEC,
+  POST_IMAGE,
   THEM_CONG_VIEC,
 } from "../types/CongViecTypes";
 import Swal from "sweetalert2";
-import { api } from "../../constants/api";
 
 export const layDSCongViecAction = () => {
   return async (dispatch) => {
@@ -45,6 +45,35 @@ export const layMenuCongViecAction = () => {
     }
   };
 };
+export const postImageJobAction = (formdata, maCongViec) => {
+  return async (dispatch) => {
+    try {
+      const result = await congViecServices.PostImageAction(
+        formdata,
+        maCongViec
+      );
+
+      if (result.status === 200) {
+        dispatch({
+          type: POST_IMAGE,
+          listJob: result.data.content,
+        });
+      }
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Add sucess!",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(function () {
+        window.location.reload();
+      });
+    } catch (error) {
+      console.log("error: ssdsdsd", error.response?.data);
+    }
+  };
+};
+
 export const layChiTietLoaiCongViecAction = (maChiTietLoai) => {
   return async (dispatch) => {
     try {
