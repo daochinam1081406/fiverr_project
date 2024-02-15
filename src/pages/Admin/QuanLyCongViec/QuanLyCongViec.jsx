@@ -24,10 +24,8 @@ export default function QuanLyCongViec() {
   const { listJob } = useSelector((state) => state.CongViecReducers);
   const dispatch = useDispatch();
   const handleFileChange = (event, id) => {
-    console.log("File is selected");
     const file = event.target.files[0];
     if (file) {
-      console.log("huhu" + file + id);
       dispatch(postImageJobAction(file, id));
     } else {
       console.error("No file selected!");

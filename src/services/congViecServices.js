@@ -5,7 +5,9 @@ export const congViecServices = {
   layDanhSachCongViec: () => {
     return api.get(`/cong-viec`);
   },
-
+  layDanhSachLoaiCongViec: () => {
+    return api.get(`/loai-cong-viec`);
+  },
   layMenuCongViec: () => {
     return api.get(`cong-viec/lay-menu-loai-cong-viec`);
   },

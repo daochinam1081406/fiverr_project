@@ -9,6 +9,7 @@ import {
   LAY_DS_CONG_VIEC_THEO_TEN,
   SET_MENU_CONG_VIEC,
   POST_IMAGE,
+  LAY_DS_LOAI_CONG_VIEC,
 } from "../types/CongViecTypes";
 
 const stateDefault = {

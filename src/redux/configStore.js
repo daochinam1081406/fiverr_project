@@ -6,6 +6,7 @@ import { CongViecReducers } from "./reducers/CongViecReducers";
 import { NguoiDungReducers } from "./reducers/NguoiDungReducers";
 import { ThueCongViecReducers } from "./reducers/ThueCongViecReducers";
 import { BinhLuanReducers } from "./reducers/BinhLuanReducers";
+import { LoaiCongViecReducers } from "./reducers/LoaiCongViecReducers";
 const rootReducer = combineReducers({
   //state ứng dụng
   // CongViecReduers: CongViecReducers,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   ThueCongViecReducers,
   NguoiDungReducers,
   BinhLuanReducers,
+  LoaiCongViecReducers,
 });
 
 // const devTools = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : null
