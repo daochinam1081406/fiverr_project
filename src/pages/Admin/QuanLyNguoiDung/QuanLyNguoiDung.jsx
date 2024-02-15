@@ -126,9 +126,9 @@ export default function QuanLyNguoiDung() {
   function onChange(pagination, filters, sorter, extra) {}
   return (
     <div>
-      <h3 className="text-4xl my-3">User management</h3>
+      <h1></h1>
       <Button className="mb-5" onClick={() => setshowModal(true)}>
-        Add new
+        Add new user
       </Button>
       <Search
         className="mb-5"

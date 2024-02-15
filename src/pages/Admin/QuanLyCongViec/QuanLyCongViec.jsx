@@ -148,9 +148,9 @@ export default function QuanLyCongViec() {
   function onChange(pagination, filters, sorter, extra) {}
   return (
     <div>
-      <h3 className="text-4xl my-3">Job management</h3>
+      <h5></h5>
       <Button className="mb-5" onClick={() => setshowModal(true)}>
-        Thêm công việc
+        Add new job
       </Button>
       <Search
         className="mb-5"

@@ -2,9 +2,9 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   DesktopOutlined,
+  DollarCircleOutlined,
   FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
+  MenuOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -13,13 +13,8 @@ import { Avatar, Layout, Menu } from "antd";
 import { Navigate, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { TOKEN, USER_LOGIN } from "../../util/settings/config";
 import _ from "lodash";
-import QuanLyNguoiDung from "../../pages/Admin/QuanLyNguoiDung/QuanLyNguoiDung";
 import "./AdminTemplate.scss";
-import QuanLyCongViec from "../../pages/Admin/QuanLyCongViec/QuanLyCongViec";
-import Profile from "../../pages/Profile/Profile";
-
 const { Header, Content, Footer, Sider } = Layout;
-
 export default function AdminTemplate() {
   const dispatch = useDispatch();
   const { userLogin } = useSelector((state) => state.AuthReducers);
@@ -78,7 +73,7 @@ export default function AdminTemplate() {
             >
               Logout
             </Dropdown.Item>
-          </DropdownButton>{" "}
+          </DropdownButton>
         </Fragment>
       ) : (
         ""
@@ -94,14 +89,12 @@ export default function AdminTemplate() {
           collapsed={collapsed}
           onCollapse={(value) => setCollapsed(value)}
         >
-          <NavLink
-            to="/"
-            className="header-logo text-white flex site-logo justify-center items-center"
-            style={{ height: "120px" }}
-          >
+          <NavLink to={"/"}>
             <svg
-              width="120"
-              height="45"
+              className="admin-dashboard"
+              onclick="window.location.href='/'"
+              width="60"
+              height="30"
               viewBox="0 0 89 27"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -114,15 +107,14 @@ export default function AdminTemplate() {
               </g>
             </svg>
           </NavLink>
-
           <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
             <Menu.Item key="1" icon={<UserOutlined />}>
               <NavLink to="/admin/QuanLyNguoiDung">User management</NavLink>
             </Menu.Item>
-            <Menu.Item key="2" icon={<FileOutlined />}>
+            <Menu.Item key="2" icon={<DollarCircleOutlined />}>
               <NavLink to="/admin/QuanLyCongViec">Job management</NavLink>
             </Menu.Item>
-            <Menu.Item key="3" icon={<FileOutlined />}>
+            <Menu.Item key="3" icon={<MenuOutlined />}>
               <NavLink to="/admin/QuanLyLoaiCongViec">
                 Job type management
               </NavLink>

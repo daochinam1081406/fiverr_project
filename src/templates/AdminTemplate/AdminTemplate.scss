@@ -1,18 +1,18 @@
 .ant-layout {
   .ant-layout-sider {
-    background: #00502b;
+    background: #515653;
   }
   .ant-menu.ant-menu-dark,
   .ant-menu-dark .ant-menu-sub,
   .ant-menu.ant-menu-dark .ant-menu-sub {
-    background: #00502b;
+    background: #515453;
   }
   .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal)
     .ant-menu-item-selected {
-    background: #1dbf73;
+    background: #0e3020;
   }
   .ant-layout-header {
-    background: #00502b;
+    background: #03361e;
     button {
       border: none;
       color: #fff;
@@ -23,7 +23,7 @@
     }
   }
   .ant-layout-sider-trigger {
-    background: #1dbf73;
+    background: #b3b8b5;
   }
   .dropdown-menu.show {
     a {
@@ -38,4 +38,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+.admin-dashboard{
+  color: #fff;
+  margin: 0.9rem;
+
 }
