@@ -12,7 +12,7 @@ import { layBinhLuanTheoCongViecAction } from "../../redux/actions/BinhLuanActio
 
 export default function DetailJob() {
   const { userLogin } = useSelector((state) => state.AuthReducers);
-  const { binhLuans } = useSelector((state) => state.BinhLuanReducers);
+  const { listBinhLuan } = useSelector((state) => state.BinhLuanReducers);
   const { detailJob, jobId } = useParams();
   const { detailJobs } = useSelector((state) => state.CongViecReducers);
 
@@ -47,10 +47,8 @@ export default function DetailJob() {
     }, 300);
   };
   useEffect(() => {
-    console.log("useEffect is working!");
     dispatch1(layBinhLuanTheoCongViecAction(jobId));
   }, []);
-  console.log("ddddfsfs" + binhLuans);
 
   useEffect(() => {
     dispatch(layCongViecChiTietAction(jobId));
@@ -336,30 +334,31 @@ export default function DetailJob() {
             </div>
 
             <div className="comment">
+              {listBinhLuan.map((comment) => (
+                <div key={comment.id} className="info">
+                  <div className="flex items-center mb-3">
+                    <img
+                      src={
+                        comment.avatar
+                          ? comment.avatar
+                          : "https://fastly.picsum.photos/id/719/200/300.jpg?hmac=ROd_JjwPBNsmDhuN2yXu9bdtg0T4Nyl1iYA0WDXYpxM"
+                      }
+                      alt="..."
+                      className="rounded-full mr-2"
+                    />
+                    <span>{comment.tenNguoiBinhLuan}</span>
+                    <i className="fa-solid fa-star text-warning ml-2">
+                      {comment.saoBinhLuan}
+                    </i>
+                  </div>
+                  <span>{comment.noiDung}</span>
+                  <div className="flex items-center mt-3">
+                    {/* Add functionality for thumbs up and down here */}
+                  </div>
+                </div>
+              ))}
               {userLogin?.user ? (
                 <>
-                  <div className="info">
-                    <div className="flex items-center mb-3">
-                      <img
-                        src={
-                          userLogin?.user?.avatar
-                            ? userLogin?.user?.avatar
-                            : "https://fastly.picsum.photos/id/719/200/300.jpg?hmac=ROd_JjwPBNsmDhuN2yXu9bdtg0T4Nyl1iYA0WDXYpxM"
-                        }
-                        alt="..."
-                        className="rounded-full mr-2"
-                      />
-                      <span>{userLogin?.user?.name}</span>
-                      <i class="fa-solid fa-star text-warning ml-2"> 5</i>
-                    </div>
-                    <span>ádasdasdasd</span>
-                    <div className="flex items-center mt-3">
-                      <i class="fa-regular fa-thumbs-up"></i>
-                      <span className="mx-2">Helpful</span>
-                      <i class="fa-regular fa-thumbs-down"></i>
-                      <span className="mx-2">Not Helpful</span>
-                    </div>
-                  </div>
                   <div className="commet-bottom mt-5 flex">
                     <div></div>
                     <Form className="w-full">
