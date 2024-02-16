@@ -39,9 +39,6 @@ export default function QuanLyLoaiCongViec() {
       key: "id",
 
       render: (text, listTypeJob) => {
-        {
-          console.log("sdsd" + listTypeJob);
-        }
         return <Fragment key={text}>{listTypeJob.id}</Fragment>;
       },
       width: "15%",
