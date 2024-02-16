@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { SearchOutlined, MenuOutlined } from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./Header.scss";
@@ -9,7 +9,6 @@ import HeaderSearch from "./HeaderSearch/HeaderSearch";
 import { useSelector } from "react-redux";
 import { TOKEN, USER_LOGIN } from "../../../../util/settings/config";
 export default function Header(props) {
-  let scrollHeader = "scrollHeader";
   const [offset, setOffset] = useState(0);
 
   const { userLogin } = useSelector((state) => state.AuthReducers);

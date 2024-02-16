@@ -2,6 +2,7 @@ import { api } from "../constants/api";
 
 export const binhLuanServices = {
   binhLuan: (binhLuan) => {
+    console.log("binhluan");
     return api.post(`binh-luan`, binhLuan);
   },
 

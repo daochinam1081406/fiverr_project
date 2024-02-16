@@ -1,6 +1,5 @@
 import React from "react";
 import { DatePicker, Form, Input, Select, Upload, Button } from "antd";
-import { InboxOutlined, UploadOutlined } from "@ant-design/icons";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { addJobAction } from "../../../../redux/actions/CongViecActions";
@@ -9,21 +8,13 @@ const formItemLayout = {
   labelCol: { xs: { span: 10 }, sm: { span: 9 } },
   wrapperCol: { xs: { span: 10 }, sm: { span: 8 } },
 };
-const normFile = (e) => {
-  if (Array.isArray(e)) {
-    return e;
-  }
-  return e?.fileList;
-};
+
 const { TextArea } = Input;
 const { Option } = Select;
 
 export default function FormAddJob({ setshowModal }) {
-  const { addJob } = useSelector((state) => state.CongViecReducers);
   const dispatch = useDispatch();
   const [form] = Form.useForm();
-  let idJobUploadImg = "";
-  let data = [];
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -44,13 +35,6 @@ export default function FormAddJob({ setshowModal }) {
   });
   const handleChangeRate = (saoCongViec) => {
     formik.setFieldValue("saoCongViec", saoCongViec);
-  };
-
-  const handleChangeImg = (info) => {
-    const { fileList } = info;
-    if (fileList.length > 0) {
-      formik.setFieldValue("hinhAnh", fileList[0]);
-    }
   };
 
   return (

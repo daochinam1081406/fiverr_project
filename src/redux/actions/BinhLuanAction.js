@@ -1,6 +1,5 @@
 import { binhLuanServices } from "../../services/binhLuanService";
 import { LAY_DS_BINH_LUAN, THEM_BINH_LUAN } from "../types/BinhLuanTypes";
-import Swal from "sweetalert2";
 
 export const layBinhLuanTheoCongViecAction = (maCongViec) => {
   return async (dispatch) => {
@@ -8,7 +7,7 @@ export const layBinhLuanTheoCongViecAction = (maCongViec) => {
       const result = await binhLuanServices.layBinhLuanTheoCongViec(maCongViec);
 
       if (result.status === 200) {
-        console.log(result.data.content);
+        console.log("yyyyyy" + result.data.content);
         dispatch({
           type: LAY_DS_BINH_LUAN,
           listBinhLuan: result.data.content,
@@ -30,15 +29,6 @@ export const themBinhLuan = (values) => {
           themBinhLuan: result.data.content,
         });
       }
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Add success !",
-        showConfirmButton: false,
-        timer: 1500,
-      }).then(function () {
-        window.location.reload();
-      });
     } catch (error) {
       console.log("error: ", error.response?.data);
     }

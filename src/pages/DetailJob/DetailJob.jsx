@@ -8,12 +8,15 @@ import OrderJob from "./OrderJob/OrderJob";
 import { useDispatch, useSelector } from "react-redux";
 import { layCongViecChiTietAction } from "../../redux/actions/CongViecActions";
 import { useParams } from "react-router-dom";
-import { layBinhLuanTheoCongViecAction } from "../../redux/actions/BinhLuanAction";
+import {
+  layBinhLuanTheoCongViecAction,
+  themBinhLuan,
+} from "../../redux/actions/BinhLuanAction";
 
 export default function DetailJob() {
   const { userLogin } = useSelector((state) => state.AuthReducers);
   const { listBinhLuan } = useSelector((state) => state.BinhLuanReducers);
-  const { detailJob, jobId } = useParams();
+  const { jobId } = useParams();
   const { detailJobs } = useSelector((state) => state.CongViecReducers);
 
   const dispatch = useDispatch();
@@ -22,6 +25,8 @@ export default function DetailJob() {
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
   const [isOpen4, setIsOpen4] = useState(false);
+  const [content, setContent] = useState("");
+  const [rating, setRating] = useState(0);
 
   const toggleDropdown1 = () => {
     setTimeout(() => {
@@ -45,6 +50,16 @@ export default function DetailJob() {
     setTimeout(() => {
       setIsOpen4(!isOpen4);
     }, 300);
+  };
+  const handleRatingChange = (value) => {
+    setRating(value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(themBinhLuan({ noiDung: content, saoBinhLuan: rating }));
+    setContent("");
+    setRating(0);
+    console.log("comment");
   };
   useEffect(() => {
     dispatch1(layBinhLuanTheoCongViecAction(jobId));
@@ -347,28 +362,56 @@ export default function DetailJob() {
                       className="rounded-full mr-2 profile-img"
                     />
                     <span>{comment.tenNguoiBinhLuan}</span>
-                    <i className="fa-solid fa-star text-warning ml-2">
-                      {comment.saoBinhLuan}
-                    </i>
+
+                    {[...Array(comment.saoBinhLuan)].map((_, index) => (
+                      <i
+                        key={index}
+                        className="fa-solid fa-star text-warning ml-2"
+                      ></i>
+                    ))}
                   </div>
                   <span>{comment.noiDung}</span>
-                  <div className="flex items-center mt-3">
-                    {/* Add functionality for thumbs up and down here */}
-                  </div>
+                  <div className="flex items-center mt-3"></div>
+                  <hr />
                 </div>
               ))}
+
               {userLogin?.user ? (
                 <>
+                  <img
+                    src={
+                      userLogin.user.avatar
+                        ? userLogin.user.avatar
+                        : "https://fastly.picsum.photos/id/719/200/300.jpg?hmac=ROd_JjwPBNsmDhuN2yXu9bdtg0T4Nyl1iYA0WDXYpxM"
+                    }
+                    alt="..."
+                    className="rounded-full mr-2 profile-img"
+                  />
+                  <div className="flex items-center mt-3">
+                    {[...Array(5)].map((_, index) => (
+                      <i
+                        key={index}
+                        className={`fa-solid fa-star${
+                          rating >= index + 1 ? " text-warning" : ""
+                        } ml-2`}
+                        onClick={() => handleRatingChange(index + 1)}
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      ></i>
+                    ))}
+                  </div>
                   <div className="commet-bottom mt-5 flex">
                     <div></div>
-                    <Form className="w-full">
+                    <Form className="w-full" onSubmit={handleSubmit}>
                       <Form.Item name="content" className="mb-2 ">
-                        <Input.TextArea />
+                        <Input.TextArea
+                          value={content}
+                          onChange={(e) => setContent(e.target.value)}
+                        />
                       </Form.Item>
                       <div>
-                        <button className="btn btn-primary" type="submit">
-                          Add Comment
-                        </button>
+                        <button className="btn btn-primary">Add Comment</button>
                       </div>
                     </Form>
                   </div>
