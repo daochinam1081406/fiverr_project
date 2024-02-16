@@ -344,7 +344,7 @@ export default function DetailJob() {
                           : "https://fastly.picsum.photos/id/719/200/300.jpg?hmac=ROd_JjwPBNsmDhuN2yXu9bdtg0T4Nyl1iYA0WDXYpxM"
                       }
                       alt="..."
-                      className="rounded-full mr-2"
+                      className="rounded-full mr-2 profile-img"
                     />
                     <span>{comment.tenNguoiBinhLuan}</span>
                     <i className="fa-solid fa-star text-warning ml-2">
