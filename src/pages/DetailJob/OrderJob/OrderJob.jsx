@@ -11,13 +11,13 @@ export default function OrderJob(props, { currentTab }) {
   useEffect(() => {
     switch (currentTab) {
       case "1":
-        console.log("Basic tab is selected");
+        // "Basic tab is selected";
         break;
       case "2":
-        console.log("Standard tab is selected");
+        //"Standard tab is selected";
         break;
       case "3":
-        console.log("Premium tab is selected");
+        // "Premium tab is selected";
         break;
       default:
         break;
@@ -38,7 +38,7 @@ export default function OrderJob(props, { currentTab }) {
   return (
     <div className="p-3">
       <div className="d-flex justify-content-between">
-        <h5>{console.log(detailJobs)}Standard</h5>
+        <h5>Standard</h5>
         <p className="h5  text-black">{item.congViec?.giaTien}$</p>
       </div>
       <p className="disabled h6 my-4">{item.congViec?.tenCongViec}</p>

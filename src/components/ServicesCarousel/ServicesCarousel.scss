@@ -8,14 +8,10 @@
     }
     .slick-prev {
       left: 19px;
-      //   height: 40px;
-      //   width: 40px;
       z-index: 2 !important;
     }
     .slick-next {
       right: 36px;
-      // height: 40px;
-      // width: 40px;
       z-index: 2 !important;
     }
     .slick-prev:before,
@@ -32,7 +28,6 @@
     }
 
     .card {
-      // padding: 0 20px;
       position: relative;
       z-index: 1;
       img {

@@ -103,7 +103,7 @@ export const postAvatarAction = (formdata) => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Add sucess!",
+        title: "update sucess!",
         showConfirmButton: false,
         timer: 1500,
       }).then(function () {
