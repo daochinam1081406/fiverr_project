@@ -47,7 +47,6 @@ export const congViecServices = {
     return api.delete(`cong-viec/${idJob}`);
   },
   PostImageAction: (formFile, maCongViec) => {
-    console.log("hichic" + maCongViec);
     const formData = new FormData();
     formData.append("formFile", formFile);
     return api.post(`cong-viec/upload-hinh-cong-viec/${maCongViec}`, formData);

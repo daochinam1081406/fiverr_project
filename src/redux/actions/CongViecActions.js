@@ -62,14 +62,14 @@ export const postImageJobAction = (formdata, maCongViec) => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Add sucess!",
+        title: "upload sucess!",
         showConfirmButton: false,
         timer: 1500,
       }).then(function () {
         window.location.reload();
       });
     } catch (error) {
-      console.log("error: ssdsdsd", error.response?.data);
+      console.log("error: ", error.response?.data);
     }
   };
 };

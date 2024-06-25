@@ -54,13 +54,33 @@ export default function DetailJob() {
   const handleRatingChange = (value) => {
     setRating(value);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(themBinhLuan({ noiDung: content, saoBinhLuan: rating }));
-    setContent("");
-    setRating(0);
-    console.log("comment");
+  const handleInputChange = (e) => {
+    setContent(e.target.value);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Ngăn chặn hành vi mặc định của form
+    try {
+      const currentDate = new Date();
+      const formattedDate = currentDate.toISOString();
+      await dispatch(
+        themBinhLuan({
+          maCongViec: jobId,
+          maNguoiBinhLuan: userLogin.user.id,
+          ngayBinhLuan: formattedDate,
+          noiDung: content,
+          saoBinhLuan: rating,
+        })
+      );
+      dispatch1(layBinhLuanTheoCongViecAction(jobId));
+      setContent("");
+      document.querySelector("form.w-full").reset();
+      setRating(0);
+    } catch (error) {
+      console.error("Error adding comment:", error);
+    }
+  };
+
   useEffect(() => {
     dispatch1(layBinhLuanTheoCongViecAction(jobId));
   }, []);
@@ -403,15 +423,21 @@ export default function DetailJob() {
                   </div>
                   <div className="commet-bottom mt-5 flex">
                     <div></div>
-                    <Form className="w-full" onSubmit={handleSubmit}>
+                    <Form className="w-full">
                       <Form.Item name="content" className="mb-2 ">
                         <Input.TextArea
                           value={content}
-                          onChange={(e) => setContent(e.target.value)}
+                          onChange={handleInputChange}
                         />
                       </Form.Item>
                       <div>
-                        <button className="btn btn-primary">Add Comment</button>
+                        <button
+                          type="submit"
+                          className="btn btn-primary"
+                          onClick={handleSubmit}
+                        >
+                          Add Comment
+                        </button>{" "}
                       </div>
                     </Form>
                   </div>
