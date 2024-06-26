@@ -7,11 +7,13 @@
 }
 
 .Carousel {
+  margin-top: 117px;
   position: relative;
   .carousel-img {
     .carousel-people {
       position: relative;
       img {
+        width: 100%;
         height: 680px;
         background-color: #053c23;
       }
@@ -30,7 +32,7 @@
         background: url("../../../../public/img/five_stars.e5c37f5.svg");
         background-size: 70px;
         background-repeat: no-repeat;
-        // background-position: center;
+         background-position: center;
         content: "";
         display: block;
         height: 17px;
