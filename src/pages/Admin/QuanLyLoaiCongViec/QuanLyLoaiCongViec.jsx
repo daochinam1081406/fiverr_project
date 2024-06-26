@@ -13,9 +13,12 @@ import { Modal } from "react-bootstrap";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { layDSLoaiCongViecAction } from "../../../redux/actions/LoaiCongViecAction";
-// import FormAddUser from "./FormAddUser";
-// import FormEdit from "./FormEdit/FormEdit";
+import {
+  layDSLoaiCongViecAction,
+  deleteJobTypeAction,
+} from "../../../redux/actions/LoaiCongViecAction";
+import FormAddJobType from "./FormAddJobType/FormAddJobType";
+import FormEditJobType from "./FormEditJobType/FormEditJobType";
 const { Search } = Input;
 
 export default function QuanLyLoaiCongViec() {
@@ -78,7 +81,7 @@ export default function QuanLyLoaiCongViec() {
               key={2}
               className="text-2xl"
               onClick={() => {
-                //dispatch(deleteUserAction(user.id));
+                dispatch(deleteJobTypeAction(listTypeJob.id));
               }}
             >
               <DeleteOutlined style={{ color: "red" }} />
@@ -119,22 +122,22 @@ export default function QuanLyLoaiCongViec() {
       <Modal show={showModal} onHide={() => setshowModal(false)}>
         <Modal.Header style={{ justifyContent: "center" }}>
           <Modal.Title>
-            <span className="text-center">Add new user</span>
+            <span className="text-center">Add new job type</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <FormAddUser setshowModal={setshowModal} /> */}
+          <FormAddJobType setshowModal={setshowModal} />
         </Modal.Body>
       </Modal>
 
       <Modal show={showModalEdit} onHide={() => setshowModalEdit(false)}>
         <Modal.Header style={{ justifyContent: "center" }}>
           <Modal.Title>
-            <span className="text-center">Update user</span>
+            <span className="text-center">Update job type</span>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <FormEdit setshowModalEdit={setshowModalEdit} /> */}
+          <FormEditJobType setshowModalEdit={setshowModalEdit} />
         </Modal.Body>
       </Modal>
     </div>

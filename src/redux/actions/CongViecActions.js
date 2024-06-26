@@ -1,7 +1,6 @@
 import { congViecServices } from "../../services/congViecServices";
 import {
   ADD_CONG_VIEC,
-  EDIT_CONG_VIEC,
   INFO_CONG_VIEC,
   LAY_CHI_TIET_LOAI_CONG_VIEC,
   LAY_CONG_VIEC_CHI_TIET,
@@ -10,7 +9,6 @@ import {
   LAY_DS_CONG_VIEC_THEO_TEN,
   SET_MENU_CONG_VIEC,
   POST_IMAGE,
-  THEM_CONG_VIEC,
 } from "../types/CongViecTypes";
 import Swal from "sweetalert2";
 
